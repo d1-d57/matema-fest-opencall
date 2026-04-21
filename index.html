@@ -369,6 +369,202 @@
     font-weight: 500;
   }
 
+  /* ———— STICKY PROGRESS BAR ———— */
+  .sticky-progress {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 28px;
+    background: var(--paper);
+    border-top: 1px solid var(--rule);
+    z-index: 50;
+    display: none;
+    transition: transform 0.25s ease;
+    cursor: pointer;
+  }
+  .sticky-progress.visible { display: block; }
+  .sticky-progress-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    background: rgba(201, 52, 40, 0.18);
+    transition: width 0.35s ease, background 0.3s ease;
+  }
+  .sticky-progress.complete .sticky-progress-fill {
+    width: 100%;
+    background: var(--accent);
+  }
+  .sticky-progress-label {
+    position: relative;
+    z-index: 1;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 36px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .sticky-progress.complete .sticky-progress-label {
+    color: #fff;
+    font-weight: 600;
+  }
+  .sticky-progress-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .sticky-progress-percent {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .sticky-progress.complete .sticky-progress-percent { color: #fff; }
+  .sticky-progress-action {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .sticky-progress.complete .sticky-progress-action {
+    opacity: 1;
+  }
+
+  @media (max-width: 900px) {
+    .sticky-progress-label { padding: 0 20px; }
+    .sticky-progress-left { gap: 10px; font-size: 10.5px; }
+  }
+
+  /* ———— PREVIEW MODAL ———— */
+  .preview-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(22,25,26,0.5);
+    z-index: 100;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 20px;
+    overflow-y: auto;
+  }
+  .preview-overlay.visible {
+    display: flex;
+    animation: fadeIn 0.2s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  .preview-modal {
+    max-width: 720px;
+    width: 100%;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 32px 36px;
+    animation: slideUp 0.25s ease;
+  }
+  @keyframes slideUp {
+    from { transform: translateY(12px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  .preview-modal h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.015em;
+  }
+  .preview-intro {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .preview-group {
+    margin-bottom: 22px;
+  }
+  .preview-group-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .preview-group-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    opacity: 0.25;
+  }
+  .preview-row {
+    display: grid;
+    grid-template-columns: minmax(140px, 30%) 1fr;
+    gap: 12px 24px;
+    padding: 6px 0;
+    border-bottom: 1px dotted rgba(45,48,40,0.15);
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .preview-row:last-child { border-bottom: none; }
+  .preview-row .pk {
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .preview-row .pv {
+    color: var(--ink);
+    word-break: break-word;
+    white-space: pre-wrap;
+  }
+  .preview-actions {
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .preview-actions button {
+    font-family: "Golos Text", sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 0;
+    transition: background 0.2s ease;
+  }
+  .preview-btn-confirm {
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid var(--accent);
+  }
+  .preview-btn-confirm:hover:not(:disabled) { background: #a82820; }
+  .preview-btn-confirm:disabled { opacity: 0.5; cursor: wait; }
+  .preview-btn-back {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+  .preview-btn-back:hover { background: var(--bg); }
+  .preview-status {
+    flex: 1;
+    min-width: 180px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    text-align: right;
+  }
+  .preview-status.error { color: #a82820; font-weight: 600; }
+
   .fb {
     border-top: 1px solid var(--rule);
   }
@@ -1185,7 +1381,7 @@
       </div>
 
       <div class="form-submit">
-        <button type="submit" class="submit-btn" id="submitBtn">Отправить заявку</button>
+        <button type="submit" class="submit-btn" id="submitBtn">Проверить и отправить</button>
         <div class="form-status" id="formStatus"></div>
       </div>
     </form>
@@ -1195,6 +1391,20 @@
       <p>Заявка получена. Мы свяжемся с вами в течение недели. Если срочно — пишите напрямую Ване: @d1_d57.</p>
     </div>
   </section>
+
+  <!-- PREVIEW MODAL -->
+  <div class="preview-overlay" id="previewOverlay">
+    <div class="preview-modal">
+      <h3>Проверьте заявку</h3>
+      <p class="preview-intro">Всё ли верно? После отправки редактировать нельзя.</p>
+      <div id="previewContent"></div>
+      <div class="preview-actions">
+        <button type="button" class="preview-btn-confirm" id="previewConfirm">Отправить</button>
+        <button type="button" class="preview-btn-back" id="previewBack">Назад к редактированию</button>
+        <div class="preview-status" id="previewStatus"></div>
+      </div>
+    </div>
+  </div>
 
   <footer class="bottom">
     <div class="gives">
@@ -1210,26 +1420,68 @@
 
 </div>
 
+<!-- STICKY PROGRESS -->
+<div class="sticky-progress" id="stickyProgress">
+  <div class="sticky-progress-fill" id="stickyFill"></div>
+  <div class="sticky-progress-label">
+    <div class="sticky-progress-left">
+      <span id="stickyPercent" class="sticky-progress-percent">0%</span>
+      <span id="stickyCounter">заполнено 0 из 0</span>
+    </div>
+    <span id="stickyAction" class="sticky-progress-action">Проверить и отправить →</span>
+  </div>
+</div>
+
 <script>
 (function() {
   const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyKo7DJ-G2wYGOV4_FgEkrUm5yyLWZXuvy6jKHhU2sxO65zFgA4lluriby-IozTJBvw/exec';
+  const DRAFT_KEY = 'matema-fest-2026-draft';
+  const DRAFT_SAVE_DELAY = 800; // ms
 
   const form = document.getElementById('applyForm');
   const submitBtn = document.getElementById('submitBtn');
   const statusEl = document.getElementById('formStatus');
   const successEl = document.getElementById('successMessage');
+  const formSection = document.getElementById('apply');
 
+  // Sticky progress
+  const stickyProgress = document.getElementById('stickyProgress');
+  const stickyFill = document.getElementById('stickyFill');
+  const stickyPercent = document.getElementById('stickyPercent');
+  const stickyCounter = document.getElementById('stickyCounter');
+  const stickyAction = document.getElementById('stickyAction');
+
+  // Preview
+  const previewOverlay = document.getElementById('previewOverlay');
+  const previewContent = document.getElementById('previewContent');
+  const previewConfirm = document.getElementById('previewConfirm');
+  const previewBack = document.getElementById('previewBack');
+  const previewStatus = document.getElementById('previewStatus');
+
+  // ———— Directions accordion ————
   document.querySelectorAll('.dir-item').forEach(item => {
     const summary = item.querySelector('.dir-summary');
     summary.addEventListener('click', () => item.classList.toggle('open'));
   });
 
+  // ———— Form blocks accordion ————
   const formBlocks = document.querySelectorAll('.fb');
   formBlocks.forEach(item => {
     const summary = item.querySelector('.fb-summary');
     summary.addEventListener('click', () => item.classList.toggle('open'));
   });
   if (formBlocks[0]) formBlocks[0].classList.add('open');
+
+  // ———— Radio/checkbox highlighting ————
+  function updateCheckStates() {
+    document.querySelectorAll('.radio-item input, .checkbox-item input').forEach(input => {
+      if (input.type === 'radio') {
+        input.closest('.radio-item').classList.toggle('checked', input.checked);
+      } else {
+        input.closest('.checkbox-item').classList.toggle('checked', input.checked);
+      }
+    });
+  }
 
   document.querySelectorAll('.radio-item input, .checkbox-item input').forEach(input => {
     input.addEventListener('change', () => {
@@ -1244,23 +1496,209 @@
     });
   });
 
+  // ———— Format branching ————
+  function updateFormatBranching() {
+    const checked = document.querySelector('input[name="q_format"]:checked');
+    if (!checked) return;
+    const branch = checked.dataset.branch;
+    document.querySelectorAll('.conditional[data-branch-target]').forEach(el => {
+      el.classList.toggle('active', el.dataset.branchTarget === branch);
+    });
+  }
   document.querySelectorAll('input[name="q_format"]').forEach(radio => {
-    radio.addEventListener('change', () => {
-      const branch = radio.dataset.branch;
-      document.querySelectorAll('.conditional[data-branch-target]').forEach(el => {
-        el.classList.toggle('active', el.dataset.branchTarget === branch);
-      });
-    });
+    radio.addEventListener('change', updateFormatBranching);
   });
 
+  // ———— Source branching ————
+  function updateSourceBranching() {
+    const checked = document.querySelector('input[name="q_source"]:checked');
+    const condEl = document.getElementById('cond_source');
+    if (!checked) { condEl.classList.remove('active'); return; }
+    const show = checked.value === 'Другое' || checked.value === 'Из телеграм-канала';
+    condEl.classList.toggle('active', show);
+  }
   document.querySelectorAll('input[name="q_source"]').forEach(radio => {
-    radio.addEventListener('change', () => {
-      const condEl = document.getElementById('cond_source');
-      const show = radio.value === 'Другое' || radio.value === 'Из телеграм-канала';
-      condEl.classList.toggle('active', show);
-    });
+    radio.addEventListener('change', updateSourceBranching);
   });
 
+  // ———— Helpers ————
+  function isFieldFilled(el) {
+    if (!el.value) return false;
+    return el.value.trim().length > 0;
+  }
+
+  function isGroupFilled(group, isCheckbox = false) {
+    if (isCheckbox) {
+      return group.querySelectorAll('input:checked').length > 0;
+    }
+    return !!group.querySelector('input:checked');
+  }
+
+  // ———— Progress calculation ————
+  function calcProgress() {
+    let total = 0;
+    let filled = 0;
+    document.querySelectorAll('input[data-required], textarea[data-required]').forEach(el => {
+      total++;
+      if (isFieldFilled(el)) filled++;
+    });
+    document.querySelectorAll('.radio-group[data-required="true"]').forEach(g => {
+      total++;
+      if (isGroupFilled(g)) filled++;
+    });
+    document.querySelectorAll('.checkbox-group[data-required="true"]').forEach(g => {
+      total++;
+      if (isGroupFilled(g, true)) filled++;
+    });
+    return { total, filled };
+  }
+
+  // ———— Update sticky progress ————
+  function updateStickyProgress() {
+    const { total, filled } = calcProgress();
+    const percent = total > 0 ? Math.round((filled / total) * 100) : 0;
+
+    stickyFill.style.width = percent + '%';
+    stickyPercent.textContent = percent + '%';
+    stickyCounter.textContent = `заполнено ${filled} из ${total}`;
+
+    const isComplete = (total > 0) && (filled === total);
+    stickyProgress.classList.toggle('complete', isComplete);
+  }
+
+  // ———— Show/hide sticky on scroll ————
+  function updateStickyVisibility() {
+    if (!formSection) return;
+    const rect = formSection.getBoundingClientRect();
+    // Показываем когда форма хоть как-то в зоне видимости или пользователь уже докрутил до неё
+    const formTop = rect.top;
+    const viewportHeight = window.innerHeight;
+    // Появляется когда верх формы выше низа экрана (т.е. форма начала вылезать)
+    // Скрывается когда форма полностью ниже или полностью выше экрана
+    const shouldShow = formTop < viewportHeight && rect.bottom > 0;
+    stickyProgress.classList.toggle('visible', shouldShow);
+  }
+
+  // ———— Draft saving (silent) ————
+  let saveTimeout = null;
+  function saveDraft() {
+    const draft = {};
+    form.querySelectorAll('input[type=text], input[type=email], textarea, select').forEach(el => {
+      if (el.value) draft[el.id || el.name] = el.value;
+    });
+    form.querySelectorAll('input[type=radio]:checked').forEach(el => {
+      draft['__radio_' + el.name] = el.value;
+    });
+    const checkboxNames = new Set();
+    form.querySelectorAll('input[type=checkbox]').forEach(el => checkboxNames.add(el.name));
+    checkboxNames.forEach(name => {
+      const checked = [...form.querySelectorAll(`input[type=checkbox][name="${name}"]:checked`)].map(i => i.value);
+      if (checked.length) draft['__cb_' + name] = checked;
+    });
+
+    if (Object.keys(draft).length === 0) {
+      try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
+      return;
+    }
+
+    draft.__savedAt = new Date().toISOString();
+    try {
+      localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+    } catch (e) {
+      // ignore quota
+    }
+  }
+
+  function cssEscape(v) {
+    return String(v).replace(/"/g, '\\"');
+  }
+
+  function loadDraft() {
+    let raw;
+    try { raw = localStorage.getItem(DRAFT_KEY); } catch (e) { return; }
+    if (!raw) return;
+    let draft;
+    try { draft = JSON.parse(raw); } catch (e) { return; }
+
+    Object.keys(draft).forEach(key => {
+      if (key === '__savedAt') return;
+      if (key.startsWith('__radio_')) {
+        const name = key.slice(8);
+        const value = draft[key];
+        const input = form.querySelector(`input[type=radio][name="${name}"][value="${cssEscape(value)}"]`);
+        if (input) input.checked = true;
+      } else if (key.startsWith('__cb_')) {
+        const name = key.slice(5);
+        const values = draft[key];
+        if (!Array.isArray(values)) return;
+        values.forEach(v => {
+          const input = form.querySelector(`input[type=checkbox][name="${name}"][value="${cssEscape(v)}"]`);
+          if (input) input.checked = true;
+        });
+      } else {
+        const el = document.getElementById(key) || form.querySelector(`[name="${cssEscape(key)}"]`);
+        if (el) el.value = draft[key];
+      }
+    });
+
+    updateCheckStates();
+    updateFormatBranching();
+    updateSourceBranching();
+  }
+
+  function clearDraft() {
+    try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
+  }
+
+  // ———— Debounced input handler ————
+  function scheduleSaveAndUpdate() {
+    updateStickyProgress();
+    clearTimeout(saveTimeout);
+    saveTimeout = setTimeout(saveDraft, DRAFT_SAVE_DELAY);
+  }
+
+  form.addEventListener('input', scheduleSaveAndUpdate);
+  form.addEventListener('change', scheduleSaveAndUpdate);
+
+  // ———— Scroll listener ————
+  let scrollTimeout = null;
+  window.addEventListener('scroll', () => {
+    if (scrollTimeout) return;
+    scrollTimeout = requestAnimationFrame(() => {
+      updateStickyVisibility();
+      scrollTimeout = null;
+    });
+  }, { passive: true });
+  window.addEventListener('resize', updateStickyVisibility);
+
+  // ———— Sticky click: submit only when complete ————
+  stickyProgress.addEventListener('click', () => {
+    if (!stickyProgress.classList.contains('complete')) {
+      // не complete — просто проскроллить к первому незаполненному блоку
+      const firstBlockWithEmpty = [...formBlocks].find(block => {
+        let has = false;
+        block.querySelectorAll('input[data-required], textarea[data-required]').forEach(el => {
+          if (!isFieldFilled(el)) has = true;
+        });
+        block.querySelectorAll('.radio-group[data-required="true"]').forEach(g => {
+          if (!isGroupFilled(g)) has = true;
+        });
+        block.querySelectorAll('.checkbox-group[data-required="true"]').forEach(g => {
+          if (!isGroupFilled(g, true)) has = true;
+        });
+        return has;
+      });
+      if (firstBlockWithEmpty) {
+        firstBlockWithEmpty.classList.add('open');
+        setTimeout(() => firstBlockWithEmpty.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+      }
+      return;
+    }
+    // complete — вызываем submit
+    form.requestSubmit();
+  });
+
+  // ———— Validate and collect ————
   function validateAndCollect() {
     const errors = [];
     const firstErrorBlock = { block: null };
@@ -1308,6 +1746,78 @@
     return { data, errors, firstErrorBlock: firstErrorBlock.block };
   }
 
+  // ———— Preview ————
+  const BLOCK_NAMES = {
+    1: 'О вас',
+    2: 'Идея',
+    3: 'Пространство',
+    4: 'Материалы и команда',
+    5: 'Время',
+    6: 'Что ещё'
+  };
+
+  function escapeHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function showPreview(data) {
+    const groups = { 1: {}, 2: {}, 3: {}, 4: {}, 5: {}, 6: {} };
+
+    Object.keys(data).forEach(key => {
+      if (key === 'Дата') return;
+      const value = data[key];
+      let blockIdx = null;
+      const input = form.querySelector(`[name="${cssEscape(key)}"]`);
+      if (input) {
+        const fb = input.closest('.fb');
+        if (fb) blockIdx = fb.dataset.block;
+      }
+      if (!blockIdx) {
+        const group = [...document.querySelectorAll('.radio-group, .checkbox-group')].find(g => g.dataset.name === key);
+        if (group) {
+          const fb = group.closest('.fb');
+          if (fb) blockIdx = fb.dataset.block;
+        }
+      }
+      if (!blockIdx) blockIdx = 6;
+      groups[blockIdx][key] = value;
+    });
+
+    let html = '';
+    Object.keys(groups).forEach(idx => {
+      const fields = groups[idx];
+      if (Object.keys(fields).length === 0) return;
+      html += `<div class="preview-group">`;
+      html += `<div class="preview-group-label">§ 0${idx} · ${BLOCK_NAMES[idx]}</div>`;
+      Object.keys(fields).forEach(k => {
+        const v = escapeHtml(fields[k]);
+        html += `<div class="preview-row"><div class="pk">${escapeHtml(k)}</div><div class="pv">${v}</div></div>`;
+      });
+      html += `</div>`;
+    });
+
+    previewContent.innerHTML = html;
+    previewStatus.textContent = '';
+    previewStatus.className = 'preview-status';
+    previewConfirm.disabled = false;
+    previewConfirm.textContent = 'Отправить';
+    previewOverlay.classList.add('visible');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hidePreview() {
+    previewOverlay.classList.remove('visible');
+    document.body.style.overflow = '';
+  }
+
+  previewBack.addEventListener('click', hidePreview);
+  previewOverlay.addEventListener('click', (e) => {
+    if (e.target === previewOverlay) hidePreview();
+  });
+
+  // ———— Submit ————
+  let currentData = null;
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     statusEl.className = 'form-status';
@@ -1327,29 +1837,47 @@
       return;
     }
 
-    submitBtn.disabled = true;
-    statusEl.textContent = 'Отправляем…';
+    currentData = data;
+    showPreview(data);
+  });
+
+  previewConfirm.addEventListener('click', async () => {
+    if (!currentData) return;
+    previewConfirm.disabled = true;
+    previewConfirm.textContent = 'Отправляем…';
+    previewStatus.className = 'preview-status';
+    previewStatus.textContent = '';
 
     try {
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify(data)
+        body: JSON.stringify(currentData)
       });
 
+      clearDraft();
+      hidePreview();
       form.style.display = 'none';
+      stickyProgress.classList.remove('visible');
       successEl.classList.add('visible');
       successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
     } catch (err) {
       console.error(err);
-      statusEl.className = 'form-status error';
-      statusEl.textContent = 'Ошибка отправки. Напишите напрямую Ване: @d1_d57';
-      submitBtn.disabled = false;
+      previewStatus.className = 'preview-status error';
+      previewStatus.textContent = 'Ошибка отправки. Напишите напрямую Ване: @d1_d57';
+      previewConfirm.disabled = false;
+      previewConfirm.textContent = 'Отправить';
     }
   });
+
+  // ———— Init ————
+  loadDraft();
+  updateStickyProgress();
+  updateStickyVisibility();
 })();
+</script>
 </script>
 
 </body>
