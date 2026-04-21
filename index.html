@@ -749,6 +749,41 @@
     gap: 18px;
     flex-wrap: wrap;
   }
+
+  .consent-field {
+    margin-top: 24px;
+    padding: 14px 16px;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .consent-field:hover { background: #fff; }
+  .consent-field.checked {
+    background: #fff;
+    border-color: var(--accent);
+  }
+  .consent-field input {
+    margin-top: 2px;
+    flex-shrink: 0;
+    accent-color: var(--accent);
+  }
+  .consent-field label {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .consent-field a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(201,52,40,0.4);
+  }
+  .consent-field a:hover {
+    border-bottom-color: var(--accent);
+  }
   button.submit-btn {
     font-family: "Golos Text", sans-serif;
     font-size: 15px;
@@ -903,7 +938,7 @@
     </div>
 
     <div class="manifesto-main">
-      <p>Ищем <strong>опыт, который нельзя получить дома</strong>. Посетитель взаимодействует с необычным объектом или с человеком, который показывает, как это устроено, учит что-то делать, передаёт знание.</p>
+      <p>Ищем <strong>опыт, который нельзя получить дома одному</strong>. Посетитель взаимодействует с необычным объектом или с человеком, который показывает, как это устроено, учит что-то делать, передаёт знание.</p>
     </div>
 
     <div class="manifesto-branches">
@@ -1380,6 +1415,13 @@
         </div></div>
       </div>
 
+      <div class="consent-field" id="consentField">
+        <input type="checkbox" id="consent" name="Согласие на обработку ПД" />
+        <label for="consent">
+          Я согласен(а) на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">политикой</a>. Данные используются только для отбора участников opencall и связи с вами.
+        </label>
+      </div>
+
       <div class="form-submit">
         <button type="submit" class="submit-btn" id="submitBtn">Проверить и отправить</button>
         <div class="form-status" id="formStatus"></div>
@@ -1495,6 +1537,15 @@
       }
     });
   });
+
+  // ———— Consent field highlight ————
+  const consentCheckbox = document.getElementById('consent');
+  const consentField = document.getElementById('consentField');
+  if (consentCheckbox && consentField) {
+    consentCheckbox.addEventListener('change', () => {
+      consentField.classList.toggle('checked', consentCheckbox.checked);
+    });
+  }
 
   // ———— Format branching ————
   function updateFormatBranching() {
@@ -1822,6 +1873,15 @@
     e.preventDefault();
     statusEl.className = 'form-status';
     statusEl.textContent = '';
+
+    // Проверка согласия
+    const consentEl = document.getElementById('consent');
+    if (!consentEl.checked) {
+      statusEl.className = 'form-status error';
+      statusEl.textContent = 'Нужно согласие на обработку персональных данных.';
+      document.getElementById('consentField').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
 
     const { data, errors, firstErrorBlock } = validateAndCollect();
 
