@@ -1416,9 +1416,9 @@
       </div>
 
       <div class="consent-field" id="consentField">
-        <input type="checkbox" id="consent" name="Согласие на обработку ПД" />
+        <input type="checkbox" id="consent" name="Согласие на обработку ПД и подтверждение возраста" />
         <label for="consent">
-          Я согласен(а) на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">политикой</a>. Данные используются только для отбора участников opencall и связи с вами.
+          Мне <strong>18 лет и больше</strong>, и я согласен(а) на обработку персональных данных в соответствии с <a href="privacy.html" target="_blank" rel="noopener">политикой</a>. Данные используются только для отбора участников opencall и связи с вами.
         </label>
       </div>
 
@@ -1878,7 +1878,7 @@
     const consentEl = document.getElementById('consent');
     if (!consentEl.checked) {
       statusEl.className = 'form-status error';
-      statusEl.textContent = 'Нужно согласие на обработку персональных данных.';
+      statusEl.textContent = 'Подтвердите возраст и согласие на обработку данных.';
       document.getElementById('consentField').scrollIntoView({ behavior: 'smooth', block: 'center' });
       return;
     }
