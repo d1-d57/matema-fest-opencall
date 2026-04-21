@@ -1267,7 +1267,7 @@
     const data = {};
     data['Дата'] = new Date().toISOString();
 
-    form.querySelectorAll('[data-required]').forEach(el => {
+    form.querySelectorAll('input[data-required], textarea[data-required]').forEach(el => {
       if (!el.value.trim()) {
         const blockEl = el.closest('.fb');
         if (blockEl && !firstErrorBlock.block) firstErrorBlock.block = blockEl;
