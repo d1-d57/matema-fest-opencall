@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Фрактальная Одиссея — что мы ищем</title>
+<title>Open call — Фрактальная Одиссея</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   :root {
     --bg: #e8ecd4;
@@ -14,7 +14,9 @@
     --ink: #16191a;
     --ink-soft: #3a3e36;
     --rule: #2d3028;
+    --rule-soft: rgba(45, 48, 40, 0.15);
     --accent: #c93428;
+    --accent-dim: rgba(201, 52, 40, 0.08);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -23,15 +25,12 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: "Fraunces", Georgia, serif;
-    font-variation-settings: "opsz" 14, "SOFT" 30;
-    font-size: 15.5px;
-    line-height: 1.5;
+    font-family: "Golos Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.55;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    background-image:
-      radial-gradient(circle at 8% 6%, rgba(201,52,40,0.04) 0, transparent 35%),
-      radial-gradient(circle at 94% 96%, rgba(61,77,43,0.05) 0, transparent 40%);
   }
 
   .mono {
@@ -48,163 +47,163 @@
   a.link:hover { border-bottom-color: var(--accent); }
 
   .page {
-    max-width: 1140px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 24px 36px 48px;
-    animation: fadeUp 0.8s ease both;
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
+    padding: 28px 36px 56px;
   }
 
   /* ———— HEADER ———— */
   header.top {
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
+    justify-content: space-between;
     align-items: baseline;
     gap: 24px;
-    padding-bottom: 12px;
+    padding-bottom: 16px;
     border-bottom: 1px solid var(--rule);
-    margin-bottom: 24px;
+    margin-bottom: 40px;
   }
-  .logo {
-    font-family: "Fraunces", serif;
-    font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 700;
-    font-style: italic;
-    font-size: 22px;
-    letter-spacing: -0.01em;
+  .fest-brand {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
     color: var(--accent);
+    font-weight: 500;
   }
   .top-meta {
-    font-size: 10.5px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--ink-soft);
   }
-  .top-meta .sep { color: var(--accent); margin: 0 4px; }
+  .top-meta .sep { color: var(--accent); margin: 0 5px; }
 
   /* ———— HERO ———— */
   .hero {
-    margin-bottom: 28px;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 14px;
+    margin-bottom: 48px;
   }
-  .hero-fest {
+  .hero-subtitle {
     font-family: "JetBrains Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.22em;
+    font-size: 12px;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--ink-soft);
     font-weight: 500;
-    margin-bottom: -4px;
+    margin-bottom: 16px;
   }
   h1.title {
-    font-family: "Fraunces", serif;
-    font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 400;
-    font-weight: 400;
-    font-size: clamp(40px, 5.5vw, 72px);
+    font-family: "Golos Text", sans-serif;
+    font-weight: 700;
+    font-size: clamp(56px, 9vw, 120px);
     line-height: 0.95;
-    letter-spacing: -0.025em;
-  }
-  h1.title em {
-    font-style: italic;
-    color: var(--accent);
-    font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 300;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    margin-bottom: 24px;
   }
   .hero-lede {
-    font-size: 16.5px;
+    font-size: 17px;
     line-height: 1.5;
-    max-width: 90ch;
+    max-width: 72ch;
     color: var(--ink-soft);
-    font-variation-settings: "opsz" 20, "SOFT" 60, "wght" 400;
+    font-weight: 400;
+  }
+  .hero-lede strong {
+    color: var(--ink);
+    font-weight: 600;
   }
 
-  /* ———— RUBRIC LABELS ———— */
-  .rubric {
+  /* ———— SECTION LABEL ———— */
+  .section-label {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-bottom: 14px;
+    margin-bottom: 20px;
   }
-  .rubric .num {
+  .section-label .num {
     font-family: "JetBrains Mono", monospace;
-    font-size: 10.5px;
+    font-size: 11px;
     letter-spacing: 0.15em;
     color: var(--accent);
     font-weight: 500;
   }
-  .rubric .label {
-    font-size: 10.5px;
+  .section-label .label {
+    font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--ink);
-    font-weight: 500;
+    font-weight: 600;
   }
-  .rubric .rule {
+  .section-label .rule {
     flex: 1;
     height: 1px;
     background: var(--rule);
-    opacity: 0.3;
+    opacity: 0.25;
   }
 
-  /* ———— MANIFESTO: 2×2 ———— */
-  .manifesto { margin-bottom: 22px; }
-  .principles {
+  /* ———— MANIFESTO: reworked ———— */
+  .manifesto { margin-bottom: 32px; }
+
+  .manifesto-main {
+    padding: 22px 28px;
+    background: var(--paper);
+    border-left: 3px solid var(--accent);
+    margin-bottom: 20px;
+  }
+  .manifesto-main p {
+    font-size: 17.5px;
+    line-height: 1.45;
+    max-width: 80ch;
+  }
+  .manifesto-main p strong {
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .manifesto-branches {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px 28px;
+    gap: 16px 32px;
+    padding-left: 28px;
+    margin-bottom: 20px;
   }
-  .principle {
+  .manifesto-branch {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 12px;
-    padding-top: 10px;
+    padding-top: 12px;
     border-top: 1px solid var(--rule);
   }
-  .principle .p-num {
+  .manifesto-branch .b-mark {
     font-family: "JetBrains Mono", monospace;
     font-size: 11px;
     color: var(--accent);
     font-weight: 500;
     padding-top: 3px;
   }
-  .principle p {
+  .manifesto-branch p {
     font-size: 14.5px;
-    line-height: 1.48;
+    line-height: 1.5;
   }
-  .principle p strong {
+  .manifesto-branch p strong {
     font-weight: 600;
-    font-variation-settings: "opsz" 20, "SOFT" 60, "wght" 600;
   }
 
-  /* ———— AXIS ———— */
-  .axis {
-    margin: 26px 0 28px;
-    padding: 16px 24px;
-    background: var(--paper);
-    border-left: 3px solid var(--accent);
-    font-size: 16.5px;
-    line-height: 1.45;
-    font-variation-settings: "opsz" 24, "SOFT" 100, "wght" 400;
-    font-style: italic;
-    max-width: 95ch;
+  .manifesto-note {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    padding: 12px 28px;
+    border-top: 1px dashed var(--rule-soft);
+    padding-top: 16px;
+    margin-top: 8px;
   }
-  .axis strong {
-    font-weight: 600;
-    font-style: normal;
+  .manifesto-note strong {
     color: var(--ink);
-    font-variation-settings: "opsz" 24, "SOFT" 60, "wght" 600;
-  }
-  .axis em {
-    font-style: italic;
-    color: var(--accent);
+    font-weight: 600;
   }
 
   /* ———— FORMATS ———— */
-  .formats { margin-bottom: 28px; }
+  .formats { margin-bottom: 36px; }
   .formats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -212,107 +211,406 @@
     border-bottom: 1px solid var(--rule);
   }
   .format {
-    padding: 16px 18px 18px;
+    padding: 16px 20px 18px;
     border-right: 1px solid var(--rule);
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 6px;
   }
   .format:last-child { border-right: none; }
-  .format-name {
-    font-family: "Fraunces", serif;
-    font-variation-settings: "opsz" 48, "SOFT" 80, "wght" 500;
-    font-weight: 500;
-    font-size: 18px;
-    letter-spacing: -0.01em;
-  }
-  .format-desc {
-    font-size: 13px;
-    line-height: 1.45;
-    color: var(--ink-soft);
-  }
-  .format-desc em {
-    font-style: italic;
-    color: var(--accent);
-    font-weight: 500;
-    font-variation-settings: "opsz" 18, "SOFT" 60, "wght" 500;
-  }
-
-  /* ———— DIRECTIONS ———— */
-  .directions { margin-bottom: 28px; }
-  .directions-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    align-items: start;
-  }
-  .card {
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    padding: 16px 16px 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px -10px rgba(22,25,26,0.2);
-  }
-  .card.tall {
-    grid-row: span 2;
-  }
-  .card-head {
+  .format-head {
     display: flex;
     align-items: baseline;
-    gap: 10px;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 9px;
+    gap: 8px;
   }
-  .card-num {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 10.5px;
-    font-weight: 500;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-  }
-  .card-title {
-    font-family: "Fraunces", serif;
-    font-variation-settings: "opsz" 48, "SOFT" 80, "wght" 500;
-    font-weight: 500;
-    font-size: 21px;
-    line-height: 1;
-    letter-spacing: -0.015em;
-  }
-  .card-desc {
-    font-size: 12.5px;
-    line-height: 1.4;
-    color: var(--ink-soft);
-    font-variation-settings: "opsz" 18, "SOFT" 60, "wght" 400;
-    font-style: italic;
-  }
-  .card-list {
-    list-style: none;
-    font-size: 12.8px;
-    line-height: 1.4;
+  .format-name {
+    font-size: 17px;
+    font-weight: 600;
     color: var(--ink);
+    letter-spacing: -0.005em;
   }
-  .card-list li {
-    padding: 5px 0 5px 11px;
+  .format-time {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .format-desc {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  /* ———— DIRECTIONS: COLLAPSIBLE ———— */
+  .directions { margin-bottom: 44px; }
+
+  .directions-hint {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+
+  .dir-accordion {
+    border-top: 1px solid var(--rule);
+  }
+  .dir-item {
+    border-bottom: 1px solid var(--rule);
+  }
+  .dir-summary {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 14px;
+    align-items: center;
+    padding: 14px 4px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+  }
+  .dir-summary:hover {
+    background: var(--accent-dim);
+  }
+  .dir-num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .dir-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+  }
+  .dir-toggle {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+    width: 16px;
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+  .dir-item.open .dir-toggle { transform: rotate(45deg); }
+
+  .dir-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .dir-item.open .dir-body {
+    max-height: 1200px;
+  }
+  .dir-body-inner {
+    padding: 4px 4px 20px;
+  }
+  .dir-desc {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+    max-width: 70ch;
+  }
+  .dir-list {
+    list-style: none;
+    columns: 2;
+    column-gap: 28px;
+    font-size: 13.5px;
+    line-height: 1.5;
+  }
+  .dir-list li {
+    padding: 4px 0 4px 14px;
     position: relative;
     break-inside: avoid;
   }
-  .card-list li + li {
-    border-top: 1px dotted rgba(45,48,40,0.25);
-  }
-  .card-list li::before {
+  .dir-list li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 13px;
-    width: 5px;
+    top: 11px;
+    width: 6px;
     height: 1px;
     background: var(--accent);
+  }
+
+  /* ———— FORM ———— */
+  .form-section {
+    margin-top: 32px;
+    margin-bottom: 36px;
+    padding: 32px 36px 36px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+  }
+  .form-section .form-intro {
+    margin-bottom: 24px;
+    max-width: 70ch;
+  }
+  .form-section h2 {
+    font-family: "Golos Text", sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+  .form-section .form-intro p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .form-section .form-total {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 8px;
+    font-weight: 500;
+  }
+
+  .fb {
+    border-top: 1px solid var(--rule);
+  }
+  .fb:last-of-type {
+    border-bottom: 1px solid var(--rule);
+  }
+  .fb-summary {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 14px;
+    align-items: center;
+    padding: 16px 4px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+  }
+  .fb-summary:hover {
+    background: var(--accent-dim);
+  }
+  .fb-num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .fb-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .fb-title-desc {
+    font-weight: 400;
+    color: var(--ink-soft);
+    font-size: 13.5px;
+    margin-left: 8px;
+  }
+  .fb-minutes {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.05em;
+  }
+  .fb-toggle {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+    width: 16px;
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+  .fb.open .fb-toggle { transform: rotate(45deg); }
+  .fb-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .fb.open .fb-body {
+    max-height: 3000px;
+  }
+  .fb-body-inner {
+    padding: 4px 4px 24px;
+  }
+
+  .field {
+    margin-bottom: 18px;
+  }
+  .field-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+  .field-label .req {
+    color: var(--accent);
+    margin-left: 3px;
+  }
+  .field-hint {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    line-height: 1.45;
+    margin-bottom: 8px;
+  }
+  .field-input,
+  .field-textarea,
+  .field-select {
+    width: 100%;
+    padding: 10px 12px;
+    font-family: "Golos Text", sans-serif;
+    font-size: 14.5px;
+    line-height: 1.4;
+    color: var(--ink);
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    outline: none;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  .field-input:focus,
+  .field-textarea:focus,
+  .field-select:focus {
+    border-color: var(--accent);
+    background: #fff;
+  }
+  .field-textarea {
+    min-height: 78px;
+    resize: vertical;
+  }
+  .field-select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23c93428' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+  }
+
+  .radio-group,
+  .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .radio-item,
+  .checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 12px;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    cursor: pointer;
+    transition: background 0.12s ease, border-color 0.12s ease;
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+  .radio-item:hover,
+  .checkbox-item:hover {
+    background: #fff;
+  }
+  .radio-item input,
+  .checkbox-item input {
+    margin-top: 1px;
+    flex-shrink: 0;
+    accent-color: var(--accent);
+  }
+  .radio-item.checked,
+  .checkbox-item.checked {
+    background: #fff;
+    border-color: var(--accent);
+  }
+  .radio-item strong,
+  .checkbox-item strong {
+    font-weight: 600;
+  }
+
+  .conditional {
+    display: none;
+    margin-top: 10px;
+    padding: 12px 16px;
+    background: var(--bg);
+    border-left: 2px solid var(--accent);
+  }
+  .conditional.active {
+    display: block;
+    animation: slideDown 0.25s ease;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .form-submit {
+    margin-top: 24px;
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  button.submit-btn {
+    font-family: "Golos Text", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 13px 28px;
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+    letter-spacing: 0;
+    border-radius: 0;
+  }
+  button.submit-btn:hover:not(:disabled) {
+    background: #a82820;
+  }
+  button.submit-btn:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+  button.submit-btn:disabled {
+    opacity: 0.5;
+    cursor: wait;
+  }
+
+  .form-status {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    flex: 1;
+    min-width: 200px;
+  }
+  .form-status.success {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .form-status.error {
+    color: #a82820;
+    font-weight: 600;
+  }
+
+  .success-message {
+    display: none;
+    padding: 36px 24px;
+    text-align: center;
+  }
+  .success-message.visible { display: block; }
+  .success-message h3 {
+    font-family: "Golos Text", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .success-message p {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    max-width: 52ch;
+    margin: 0 auto;
+    line-height: 1.55;
   }
 
   /* ———— FOOTER ———— */
@@ -321,12 +619,12 @@
     grid-template-columns: 1fr auto;
     gap: 28px;
     align-items: end;
-    padding-top: 16px;
+    padding-top: 18px;
     border-top: 2px solid var(--rule);
   }
   .gives {
-    font-size: 13.5px;
-    line-height: 1.45;
+    font-size: 13px;
+    line-height: 1.5;
     color: var(--ink);
     max-width: 80ch;
   }
@@ -346,10 +644,9 @@
     line-height: 1.3;
   }
   .contact .name {
-    font-family: "Fraunces", serif;
-    font-variation-settings: "opsz" 48, "SOFT" 100, "wght" 500;
-    font-style: italic;
-    font-size: 19px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
   }
   .contact .handle {
     font-family: "JetBrains Mono", monospace;
@@ -358,27 +655,28 @@
     margin-top: 2px;
     display: block;
   }
-  .contact .handle:hover {
-    text-decoration: underline;
-  }
+  .contact .handle:hover { text-decoration: underline; }
 
   /* ———— RESPONSIVE ———— */
-  @media (max-width: 960px) {
-    .page { padding: 20px 20px 40px; }
-    header.top { grid-template-columns: 1fr; gap: 6px; }
-    .principles { grid-template-columns: 1fr; }
-    .directions-grid { grid-template-columns: repeat(2, 1fr); }
-    .card.tall { grid-row: auto; }
+  @media (max-width: 900px) {
+    .page { padding: 24px 20px 44px; }
+    header.top { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .manifesto-branches { grid-template-columns: 1fr; padding-left: 0; }
+    .manifesto-note { padding-left: 0; padding-right: 0; }
     .formats-grid { grid-template-columns: 1fr; }
     .format { border-right: none; border-bottom: 1px solid var(--rule); }
     .format:last-child { border-bottom: none; }
-    .bottom { grid-template-columns: 1fr; }
+    .bottom { grid-template-columns: 1fr; gap: 18px; }
     .contact { text-align: left; }
+    .form-section { padding: 22px 20px 26px; }
+    .form-section h2 { font-size: 26px; }
+    .dir-list { columns: 1; }
+    .fb-summary { grid-template-columns: auto 1fr auto; gap: 10px; }
+    .fb-minutes { display: none; }
+    .fb-title-desc { display: block; margin-left: 0; margin-top: 2px; }
   }
   @media (max-width: 540px) {
-    .directions-grid { grid-template-columns: 1fr; }
-    h1.title { font-size: 40px; }
-    .axis { font-size: 15.5px; padding: 14px 18px; }
+    h1.title { font-size: 46px; }
   }
 </style>
 </head>
@@ -387,174 +685,514 @@
 <div class="page">
 
   <header class="top">
-    <div class="logo">Matema&thinsp;— фест</div>
-    <div class="top-meta mono">
+    <span class="fest-brand">Фрактальная Одиссея</span>
+    <span class="top-meta">
       23 мая 2026 <span class="sep">·</span> Лахесис, Москва <span class="sep">·</span> 18+
-    </div>
+    </span>
   </header>
 
   <section class="hero">
-    <div class="hero-fest mono">Фрактальная Одиссея · 2026</div>
-    <h1 class="title">Что мы <em>ищем</em></h1>
+    <div class="hero-subtitle">Matema-фест · 2026</div>
+    <h1 class="title">Open call</h1>
     <p class="hero-lede">
-      Matema-фест — научпоп-фестиваль о фракталах, самоподобии и геометрии. В программе около 6 лекций, выступлений и перформансов, 15 станций, плюс инсталляции и музыка.
+      Научпоп-фестиваль о фракталах, самоподобии и геометрии. В программе около 6 лекций и выступлений, <strong>15 часовых станций</strong>, плюс инсталляции и музыка.<br/><br/><strong>Ищем соавторов программы</strong> — подайте идею через форму ниже.
     </p>
   </section>
 
   <section class="manifesto">
-    <div class="rubric">
+    <div class="section-label">
       <span class="num mono">§ 01</span>
-      <span class="label">Как отбираем</span>
+      <span class="label">Что мы ищем</span>
       <span class="rule"></span>
     </div>
 
-    <div class="principles">
-      <div class="principle">
-        <span class="p-num mono">01</span>
-        <p><strong>Опыт, который нельзя получить дома одному.</strong> Посетитель взаимодействует с необычным объектом или с человеком, который показывает и объясняет.</p>
+    <div class="manifesto-main">
+      <p>Ищем <strong>опыт, который нельзя получить дома одному</strong>. Посетитель взаимодействует с необычным объектом или с человеком, который показывает, как это устроено, учит что-то делать, передаёт знание.</p>
+    </div>
+
+    <div class="manifesto-branches">
+      <div class="manifesto-branch">
+        <span class="b-mark">→</span>
+        <p><strong>Визуальный опыт на стыке науки и искусства.</strong> Который удивляет, запоминается, вызывает эмоцию.</p>
       </div>
-      <div class="principle">
-        <span class="p-num mono">02</span>
-        <p><strong>Визуальный опыт, который запоминается.</strong> Красота бывает геометрической, биологической, химической, оптической.</p>
-      </div>
-      <div class="principle">
-        <span class="p-num mono">03</span>
-        <p><strong>Активное участие.</strong> Посетитель создаёт или решает — и, в идеале, уносит материальный результат с собой.</p>
-      </div>
-      <div class="principle">
-        <span class="p-num mono">04</span>
-        <p><strong>Коллаборации.</strong> Рады образовательным и арт-проектам, которые хотят собрать и провести свою станцию — не обязательно несколько, важно, чтобы получилось классно.</p>
+      <div class="manifesto-branch">
+        <span class="b-mark">→</span>
+        <p><strong>Активное участие.</strong> Посетитель создаёт объект или решает задачу — и, в идеале, получает материальный результат.</p>
       </div>
     </div>
+
+    <p class="manifesto-note">
+      <strong>Коллаборации.</strong> Рады образовательным и арт-проектам, которые хотят собрать и провести свою станцию.
+    </p>
   </section>
 
-  <div class="axis">
-    Нас интересует <strong>визуальное — в математике, естественных науках и искусстве</strong>. Фракталы — хороший ориентир, <em>но не обязательны</em>.
-  </div>
-
   <section class="formats">
-    <div class="rubric">
+    <div class="section-label">
       <span class="num mono">§ 02</span>
-      <span class="label">Три формата · как всё существует в залах</span>
+      <span class="label">Три формата</span>
       <span class="rule"></span>
     </div>
 
     <div class="formats-grid">
       <div class="format">
-        <h3 class="format-name">Станция</h3>
+        <div class="format-head">
+          <h3 class="format-name">Станция</h3>
+          <span class="format-time">· 1 час</span>
+        </div>
         <p class="format-desc">Вы на точке весь слот, к вам подходят в любой момент — кто-то на 5 минут, кто-то на полчаса. Основной формат.</p>
       </div>
       <div class="format">
-        <h3 class="format-name">Инсталляция</h3>
-        <p class="format-desc">Объект живёт сам, с постером и, опционально, волонтёром-смотрящим. Слот не занимает, стоит весь вечер.</p>
+        <div class="format-head">
+          <h3 class="format-name">Инсталляция</h3>
+          <span class="format-time">· весь вечер</span>
+        </div>
+        <p class="format-desc">Объект живёт сам, с постером и, опционально, волонтёром-смотрящим. Слот не занимает.</p>
       </div>
       <div class="format">
-        <h3 class="format-name">Выступление</h3>
-        <p class="format-desc">Цельный, очень перформативный опыт, который работает только вживую: танец, живая музыка, театрализованное действие.</p>
+        <div class="format-head">
+          <h3 class="format-name">Выступление</h3>
+          <span class="format-time">· 15–45 мин</span>
+        </div>
+        <p class="format-desc">Цельный перформативный опыт, который работает только вживую: рассказ о математическом явлении, живая музыка, танец, театрализованное действие.</p>
       </div>
     </div>
   </section>
 
   <section class="directions">
-    <div class="rubric">
+    <div class="section-label">
       <span class="num mono">§ 03</span>
-      <span class="label">Пять направлений · по тому, какой опыт получает посетитель</span>
+      <span class="label">Пять направлений</span>
       <span class="rule"></span>
     </div>
 
-    <div class="directions-grid">
+    <p class="directions-hint">Мы сгруппировали идеи по тому, какой опыт получает посетитель. Нажмите на направление, чтобы раскрыть примеры.</p>
 
-      <!-- 01 Решают -->
-      <article class="card">
-        <header class="card-head">
-          <span class="card-num">01</span>
-          <h3 class="card-title">Решают</h3>
-        </header>
-        <p class="card-desc">Где посетитель думает.</p>
-        <ul class="card-list">
-          <li>Японские головоломки: закрашивание клеток, рисование циклов, расстановка зеркал</li>
-          <li>Задачи про фракталы, узлы, топологию</li>
-          <li>Лингвистические задачи</li>
-          <li>Математические фокусы с разбором</li>
-          <li>Математические настолки</li>
-          <li>Игра: отличите известный математический факт от открытой гипотезы</li>
-        </ul>
-      </article>
+    <div class="dir-accordion">
 
-      <!-- 03 Экспериментируют -->
-      <article class="card">
-        <header class="card-head">
-          <span class="card-num">03</span>
-          <h3 class="card-title">Экспериментируют</h3>
-        </header>
-        <p class="card-desc">Опыты и наблюдения в реальном времени, с ведущим.</p>
-        <ul class="card-list">
-          <li>Микроскоп: повседневные предметы под увеличением</li>
-          <li>Химические эксперименты (на улице)</li>
-          <li>Мастерская природных форм: раковины, листья, семена</li>
-          <li>Ботаническая экспозиция: романеско, папоротники, агавы</li>
-        </ul>
-      </article>
+      <div class="dir-item">
+        <div class="dir-summary">
+          <span class="dir-num">01</span>
+          <span class="dir-title">Решают</span>
+          <span class="dir-toggle">+</span>
+        </div>
+        <div class="dir-body"><div class="dir-body-inner">
+          <p class="dir-desc">Головоломки, задачи, ребусы — там, где посетитель думает.</p>
+          <ul class="dir-list">
+            <li>Японские головоломки: закрашивание клеток, рисование циклов, расстановка зеркал</li>
+            <li>Задачи про фракталы, узлы, топологию</li>
+            <li>Лингвистические задачи</li>
+            <li>Математические фокусы с разбором</li>
+            <li>Математические настолки</li>
+            <li>Игра: отличите известный математический факт от открытой гипотезы</li>
+          </ul>
+        </div></div>
+      </div>
 
-      <!-- 05 Смотрят и слушают (tall, справа на 2 ряда) -->
-      <article class="card tall">
-        <header class="card-head">
-          <span class="card-num">05</span>
-          <h3 class="card-title">Смотрят и слушают</h3>
-        </header>
-        <p class="card-desc">Объекты, у которых задерживаются. Медленное и созерцательное.</p>
-        <ul class="card-list">
-          <li>Песчаный маятник, рисующий фигуры</li>
-          <li>Таймлапс роста кристаллов на стене</li>
-          <li>Аудио-станция: фрактальные звуки в наушниках</li>
-          <li>Алгоритмическая проекция на стену</li>
-          <li>3D-печатные модели фракталов</li>
-          <li>Калейдоскопы</li>
-          <li>Научная фотография: макросъёмка и спутниковое</li>
-          <li>Архитектурные модели самоподобных структур</li>
-          <li>Звучащая инсталляция, реагирующая на касание</li>
-          <li>Фотобудка с фрактальным искажением</li>
-          <li>VR-сцена с фрактальным ландшафтом</li>
-          <li>Большой принт с гидом: медленный разбор одной картинки</li>
-          <li>Инсталляция, выглядящая по-разному с разных расстояний</li>
-          <li>Таймлайн «Самоподобие до Мандельброта»</li>
-        </ul>
-      </article>
+      <div class="dir-item">
+        <div class="dir-summary">
+          <span class="dir-num">02</span>
+          <span class="dir-title">Делают руками</span>
+          <span class="dir-toggle">+</span>
+        </div>
+        <div class="dir-body"><div class="dir-body-inner">
+          <p class="dir-desc">Мастер-классы, где посетитель уносит физический результат или проходит через действие.</p>
+          <ul class="dir-list">
+            <li>Оригами: модульные фракталы по раздаткам</li>
+            <li>Тай-дай: окрашивание ткани геометрическими узорами (на улице)</li>
+            <li>Мандалы, ловцы снов</li>
+            <li>Рисование: спирографы, фрактальные шаблоны</li>
+            <li>Мыльные фракталы в проволочных каркасах</li>
+            <li>Геометрические конструкторы</li>
+            <li>Ткачество и плетение узлов</li>
+            <li>Пройти по кривой Коха, нарисованной на полу</li>
+          </ul>
+        </div></div>
+      </div>
 
-      <!-- 02 Делают руками -->
-      <article class="card">
-        <header class="card-head">
-          <span class="card-num">02</span>
-          <h3 class="card-title">Делают руками</h3>
-        </header>
-        <p class="card-desc">Посетитель уносит физический результат или проходит через действие.</p>
-        <ul class="card-list">
-          <li>Оригами: модульные фракталы по раздаткам</li>
-          <li>Тай-дай: окрашивание ткани геометрическими узорами (на улице)</li>
-          <li>Мандалы, ловцы снов</li>
-          <li>Рисование: спирографы, фрактальные шаблоны</li>
-          <li>Мыльные фракталы в проволочных каркасах</li>
-          <li>Геометрические конструкторы</li>
-          <li>Ткачество и плетение узлов</li>
-          <li>Пройти по кривой Коха, нарисованной на полу</li>
-        </ul>
-      </article>
+      <div class="dir-item">
+        <div class="dir-summary">
+          <span class="dir-num">03</span>
+          <span class="dir-title">Экспериментируют</span>
+          <span class="dir-toggle">+</span>
+        </div>
+        <div class="dir-body"><div class="dir-body-inner">
+          <p class="dir-desc">Опыты и наблюдения в реальном времени, с ведущим.</p>
+          <ul class="dir-list">
+            <li>Микроскоп: повседневные предметы под увеличением</li>
+            <li>Химические эксперименты (на улице)</li>
+            <li>Мастерская природных форм: раковины, листья, семена</li>
+            <li>Ботаническая экспозиция: романеско, папоротники, агавы</li>
+          </ul>
+        </div></div>
+      </div>
 
-      <!-- 04 Создают вместе -->
-      <article class="card">
-        <header class="card-head">
-          <span class="card-num">04</span>
-          <h3 class="card-title">Создают вместе</h3>
-        </header>
-        <p class="card-desc">Собирается силами посетителей за день.</p>
-        <ul class="card-list">
-          <li>Треугольник Серпинского из скотча, собираемый к ночи</li>
-          <li>Стена с простым правилом: каждый добавляет один элемент</li>
-          <li>Цепочка из лего, продолжаемая по правилу самоподобия</li>
-          <li>Общий гобелен или мозаика</li>
-        </ul>
-      </article>
+      <div class="dir-item">
+        <div class="dir-summary">
+          <span class="dir-num">04</span>
+          <span class="dir-title">Создают вместе</span>
+          <span class="dir-toggle">+</span>
+        </div>
+        <div class="dir-body"><div class="dir-body-inner">
+          <p class="dir-desc">Коллективный объект, который растёт за счёт вклада посетителей.</p>
+          <ul class="dir-list">
+            <li>Треугольник Серпинского из скотча, собираемый к ночи</li>
+            <li>Стена с простым правилом: каждый добавляет один элемент</li>
+            <li>Цепочка из лего, продолжаемая по правилу самоподобия</li>
+            <li>Общий гобелен или мозаика</li>
+          </ul>
+        </div></div>
+      </div>
 
+      <div class="dir-item">
+        <div class="dir-summary">
+          <span class="dir-num">05</span>
+          <span class="dir-title">Смотрят и слушают</span>
+          <span class="dir-toggle">+</span>
+        </div>
+        <div class="dir-body"><div class="dir-body-inner">
+          <p class="dir-desc">Медленный, созерцательный опыт — объекты, перед которыми задерживаются.</p>
+          <ul class="dir-list">
+            <li>Песчаный маятник, рисующий фигуры</li>
+            <li>Таймлапс роста кристаллов на стене</li>
+            <li>Аудио-станция: фрактальные звуки в наушниках</li>
+            <li>Алгоритмическая проекция на стену</li>
+            <li>3D-печатные модели фракталов</li>
+            <li>Калейдоскопы</li>
+            <li>Научная фотография: макросъёмка и спутниковое</li>
+            <li>Архитектурные модели самоподобных структур</li>
+            <li>Звучащая инсталляция, реагирующая на касание</li>
+            <li>Фотобудка с фрактальным искажением</li>
+            <li>VR-сцена с фрактальным ландшафтом</li>
+            <li>Большой принт с гидом: медленный разбор одной картинки</li>
+            <li>Инсталляция, выглядящая по-разному с разных расстояний</li>
+            <li>Таймлайн «Самоподобие до Мандельброта»</li>
+          </ul>
+        </div></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ———————————————— FORM ———————————————— -->
+  <section class="form-section" id="apply">
+    <div class="form-intro">
+      <h2>Подать идею</h2>
+      <p>Расскажите о своей станции, инсталляции или выступлении. Форма разбита на шесть блоков — раскрывайте по одному. Мы созвонимся с вами на следующей неделе.</p>
+      <div class="form-total">~ 7 минут на заполнение</div>
+    </div>
+
+    <form id="applyForm" novalidate>
+
+      <div class="fb" data-block="1">
+        <div class="fb-summary">
+          <span class="fb-num">§ 01</span>
+          <span class="fb-title">О вас <span class="fb-title-desc">— имя, контакты, опыт</span></span>
+          <span class="fb-minutes">~ 2 мин</span>
+          <span class="fb-toggle">+</span>
+        </div>
+        <div class="fb-body"><div class="fb-body-inner">
+
+          <div class="field">
+            <label class="field-label" for="q_name">Как вас зовут?<span class="req">*</span></label>
+            <input type="text" id="q_name" name="Имя" class="field-input" data-required />
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="q_contact">Контакт для связи<span class="req">*</span></label>
+            <div class="field-hint">Телеграм, почта или телефон.</div>
+            <input type="text" id="q_contact" name="Контакт" class="field-input" data-required />
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="q_about">Кратко о себе<span class="req">*</span></label>
+            <div class="field-hint">Чем занимаетесь, где учились или работаете. Можно ссылкой на CV.</div>
+            <textarea id="q_about" name="О себе" class="field-textarea" data-required></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="q_project">Проект или организация</label>
+            <div class="field-hint">Если представляете команду, школу, бюро.</div>
+            <input type="text" id="q_project" name="Проект/организация" class="field-input" />
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="q_links">Ссылки</label>
+            <div class="field-hint">Сайт, соцсети, видео выступлений, портфолио.</div>
+            <textarea id="q_links" name="Ссылки" class="field-textarea" style="min-height: 60px;"></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Откуда узнали о Matema-фесте?<span class="req">*</span></label>
+            <div class="radio-group" data-required="true" data-name="Откуда узнали">
+              <label class="radio-item"><input type="radio" name="q_source" value="От Кроссворда Тьюринга" /><span>От Кроссворда Тьюринга</span></label>
+              <label class="radio-item"><input type="radio" name="q_source" value="От Летней школы" /><span>От Летней школы</span></label>
+              <label class="radio-item"><input type="radio" name="q_source" value="От Розетки" /><span>От Розетки</span></label>
+              <label class="radio-item"><input type="radio" name="q_source" value="От других организаторов" /><span>От других организаторов</span></label>
+              <label class="radio-item"><input type="radio" name="q_source" value="От знакомых" /><span>От знакомых</span></label>
+              <label class="radio-item"><input type="radio" name="q_source" value="Из телеграм-канала" /><span>Из телеграм-канала</span></label>
+              <label class="radio-item"><input type="radio" name="q_source" value="Другое" /><span>Другое</span></label>
+            </div>
+            <div class="conditional" id="cond_source">
+              <input type="text" id="q_source_other" name="Откуда узнали — уточнение" class="field-input" placeholder="Расскажите подробнее" />
+            </div>
+          </div>
+
+        </div></div>
+      </div>
+
+      <div class="fb" data-block="2">
+        <div class="fb-summary">
+          <span class="fb-num">§ 02</span>
+          <span class="fb-title">Идея <span class="fb-title-desc">— что это и в каком формате</span></span>
+          <span class="fb-minutes">~ 3 мин</span>
+          <span class="fb-toggle">+</span>
+        </div>
+        <div class="fb-body"><div class="fb-body-inner">
+
+          <div class="field">
+            <label class="field-label" for="q_title">Рабочее название<span class="req">*</span></label>
+            <input type="text" id="q_title" name="Название" class="field-input" data-required />
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="q_idea">Опишите идею<span class="req">*</span></label>
+            <div class="field-hint">Три-пять предложений: что это, что делают участники, почему интересно. Если деталей ещё нет — общее направление.</div>
+            <textarea id="q_idea" name="Описание идеи" class="field-textarea" style="min-height: 110px;" data-required></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label">Формат<span class="req">*</span></label>
+            <div class="radio-group" data-required="true" data-name="Формат">
+              <label class="radio-item">
+                <input type="radio" name="q_format" value="Станция" data-branch="station" />
+                <span><strong>Станция</strong> — вы на точке весь слот (1 час), к вам подходят в любой момент.</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="q_format" value="Инсталляция" data-branch="installation" />
+                <span><strong>Инсталляция</strong> — объект живёт сам, стоит весь вечер.</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="q_format" value="Выступление" data-branch="performance" />
+                <span><strong>Выступление</strong> — очень перформативное и яркое, только вживую.</span>
+              </label>
+              <label class="radio-item">
+                <input type="radio" name="q_format" value="Пока не уверен(а)" data-branch="unsure" />
+                <span><strong>Пока не уверен(а)</strong> — давайте обсудим.</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="conditional" data-branch-target="station">
+            <div class="field">
+              <label class="field-label">Час для слота — работает?</label>
+              <div class="radio-group" data-name="Слот 1 час — подходит?">
+                <label class="radio-item"><input type="radio" name="q_station_slot" value="Да, час подходит" /><span>Да, час подходит</span></label>
+                <label class="radio-item"><input type="radio" name="q_station_slot" value="Час подходит, но есть нюансы" /><span>Час подходит, но есть нюансы</span></label>
+                <label class="radio-item"><input type="radio" name="q_station_slot" value="Час не подходит" /><span>Час не подходит — объясню ниже</span></label>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label">Сколько человек одновременно у вас на станции?</label>
+              <select id="q_station_capacity" name="Вместимость станции" class="field-select">
+                <option value="">—</option>
+                <option value="До 5">До 5</option>
+                <option value="5–15">5–15</option>
+                <option value="15 и больше">15 и больше</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="conditional" data-branch-target="installation">
+            <div class="field">
+              <label class="field-label">Размер объекта</label>
+              <div class="radio-group" data-name="Размер инсталляции">
+                <label class="radio-item"><input type="radio" name="q_install_size" value="Помещается на столе" /><span>Помещается на столе</span></label>
+                <label class="radio-item"><input type="radio" name="q_install_size" value="Отдельный угол ~2×2 м" /><span>Отдельный угол ~2×2 м</span></label>
+                <label class="radio-item"><input type="radio" name="q_install_size" value="Большое пространство 4×4 м+" /><span>Большое пространство 4×4 м+</span></label>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label">Нужен ли человек рядом?</label>
+              <div class="radio-group" data-name="Присутствие автора">
+                <label class="radio-item"><input type="radio" name="q_install_presence" value="Нет, объект справится сам" /><span>Нет, объект справится сам</span></label>
+                <label class="radio-item"><input type="radio" name="q_install_presence" value="Волонтёр-смотрящий периодически" /><span>Волонтёр-смотрящий периодически</span></label>
+                <label class="radio-item"><input type="radio" name="q_install_presence" value="Я буду рядом весь вечер" /><span>Я буду рядом весь вечер</span></label>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label">Как долго стоит?</label>
+              <div class="radio-group" data-name="Длительность инсталляции">
+                <label class="radio-item"><input type="radio" name="q_install_duration" value="Несколько часов" /><span>Несколько часов</span></label>
+                <label class="radio-item"><input type="radio" name="q_install_duration" value="Весь вечер" /><span>Весь вечер (15:00–20:00)</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="conditional" data-branch-target="performance">
+            <div class="field">
+              <label class="field-label">Длительность</label>
+              <div class="radio-group" data-name="Длительность выступления">
+                <label class="radio-item"><input type="radio" name="q_perf_duration" value="До 15 минут" /><span>До 15 минут</span></label>
+                <label class="radio-item"><input type="radio" name="q_perf_duration" value="15–30 минут" /><span>15–30 минут</span></label>
+                <label class="radio-item"><input type="radio" name="q_perf_duration" value="30–45 минут" /><span>30–45 минут</span></label>
+                <label class="radio-item"><input type="radio" name="q_perf_duration" value="Больше 45 минут" /><span>Больше — опишу ниже</span></label>
+              </div>
+            </div>
+            <div class="field">
+              <label class="field-label" for="q_perf_details">Что происходит?</label>
+              <div class="field-hint">Сколько людей на сцене, оборудование, что видит зритель.</div>
+              <textarea id="q_perf_details" name="Детали выступления" class="field-textarea"></textarea>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">К чему ближе?<span class="req">*</span></label>
+            <div class="checkbox-group" data-required="true" data-name="Тема">
+              <label class="checkbox-item"><input type="checkbox" name="q_theme" value="Математика" /><span>Математика</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="q_theme" value="Естественные науки" /><span>Естественные науки</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="q_theme" value="Искусство" /><span>Искусство</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="q_theme" value="Другое" /><span>Другое</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="q_visual">Визуальная красота математики<span class="req">*</span></label>
+            <div class="field-hint">В центре опыта — визуальное впечатление, которое удивляет и запоминается. Это красота на стыке науки и искусства — та, что может быть математизирована или уже является математикой. Не обязательно фракталы, но обязательно визуальная красота математики. Где в вашей идее эта ось?</div>
+            <textarea id="q_visual" name="Визуальная ось" class="field-textarea" data-required></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="q_fractal">Связь с фракталами или самоподобием?</label>
+            <div class="field-hint">Если есть — коротко. Не обязательно, но приятный бонус.</div>
+            <textarea id="q_fractal" name="Связь с фракталами" class="field-textarea" style="min-height: 60px;"></textarea>
+          </div>
+
+        </div></div>
+      </div>
+
+      <div class="fb" data-block="3">
+        <div class="fb-summary">
+          <span class="fb-num">§ 03</span>
+          <span class="fb-title">Пространство <span class="fb-title-desc">— сколько места и какое</span></span>
+          <span class="fb-minutes">~ 1 мин</span>
+          <span class="fb-toggle">+</span>
+        </div>
+        <div class="fb-body"><div class="fb-body-inner">
+
+          <div class="field">
+            <label class="field-label">Сколько места нужно?<span class="req">*</span></label>
+            <div class="radio-group" data-required="true" data-name="Место">
+              <label class="radio-item"><input type="radio" name="q_space" value="Стол и 2–4 стула" /><span>Стол и 2–4 стула</span></label>
+              <label class="radio-item"><input type="radio" name="q_space" value="Стол и люди вокруг стоя" /><span>Стол и люди вокруг стоя</span></label>
+              <label class="radio-item"><input type="radio" name="q_space" value="Большая зона 3×3 м+" /><span>Большая зона — 3×3 м и больше</span></label>
+              <label class="radio-item"><input type="radio" name="q_space" value="Уголок для тихой инсталляции" /><span>Уголок для тихой инсталляции</span></label>
+              <label class="radio-item"><input type="radio" name="q_space" value="Другое" /><span>Другое — напишу ниже</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label">В помещении или на улице?<span class="req">*</span></label>
+            <div class="radio-group" data-required="true" data-name="Помещение/улица">
+              <label class="radio-item"><input type="radio" name="q_location" value="Только в помещении" /><span>Только в помещении</span></label>
+              <label class="radio-item"><input type="radio" name="q_location" value="Предпочту помещение, можно и на улице" /><span>Предпочту помещение, можно и на улице</span></label>
+              <label class="radio-item"><input type="radio" name="q_location" value="Нужна улица" /><span>Нужна улица — химия, краска, огонь, мокрое</span></label>
+              <label class="radio-item"><input type="radio" name="q_location" value="Без разницы" /><span>Без разницы</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="q_special">Особые требования</label>
+            <div class="field-hint">Тишина, затемнение, розетки, проточная вода, проектор, звук.</div>
+            <textarea id="q_special" name="Особые требования" class="field-textarea" style="min-height: 60px;"></textarea>
+          </div>
+
+        </div></div>
+      </div>
+
+      <div class="fb" data-block="4">
+        <div class="fb-summary">
+          <span class="fb-num">§ 04</span>
+          <span class="fb-title">Материалы и команда <span class="fb-title-desc">— что нужно, сколько волонтёров</span></span>
+          <span class="fb-minutes">~ 1 мин</span>
+          <span class="fb-toggle">+</span>
+        </div>
+        <div class="fb-body"><div class="fb-body-inner">
+
+          <div class="field">
+            <label class="field-label" for="q_materials">Нужны ли материалы?<span class="req">*</span></label>
+            <div class="field-hint">Мы оплачиваем разумные расходы. Что нужно и примерно на какую сумму.</div>
+            <textarea id="q_materials" name="Материалы" class="field-textarea" data-required></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="q_bring">Что можете привезти сами?</label>
+            <textarea id="q_bring" name="Что привезёте сами" class="field-textarea" style="min-height: 60px;"></textarea>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="q_volunteers">Сколько вам нужно волонтёров?<span class="req">*</span></label>
+            <div class="field-hint">Сколько людей, что они будут делать, можете ли привести своих или нам искать.</div>
+            <textarea id="q_volunteers" name="Волонтёры" class="field-textarea" data-required></textarea>
+          </div>
+
+        </div></div>
+      </div>
+
+      <div class="fb" data-block="5">
+        <div class="fb-summary">
+          <span class="fb-num">§ 05</span>
+          <span class="fb-title">Время <span class="fb-title-desc">— когда можете быть на месте</span></span>
+          <span class="fb-minutes">~ 1 мин</span>
+          <span class="fb-toggle">+</span>
+        </div>
+        <div class="fb-body"><div class="fb-body-inner">
+
+          <div class="field">
+            <label class="field-label">Когда вы можете быть на месте?<span class="req">*</span></label>
+            <div class="field-hint">Основная часть — с 15:00 до 20:00. Можно отметить несколько интервалов.</div>
+            <div class="checkbox-group" data-required="true" data-name="Время">
+              <label class="checkbox-item"><input type="checkbox" name="q_time" value="15:00–16:00" /><span>15:00–16:00</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="q_time" value="16:00–17:00" /><span>16:00–17:00</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="q_time" value="17:00–18:00" /><span>17:00–18:00</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="q_time" value="18:00–19:00" /><span>18:00–19:00</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="q_time" value="19:00–20:00" /><span>19:00–20:00</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="q_time" value="Могу весь интервал 15:00–20:00" /><span>Могу весь интервал 15:00–20:00</span></label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field-label" for="q_time_limits">Ограничения по времени</label>
+            <div class="field-hint">Если есть окно или жёсткие привязки.</div>
+            <input type="text" id="q_time_limits" name="Ограничения по времени" class="field-input" />
+          </div>
+
+        </div></div>
+      </div>
+
+      <div class="fb" data-block="6">
+        <div class="fb-summary">
+          <span class="fb-num">§ 06</span>
+          <span class="fb-title">Что ещё <span class="fb-title-desc">— вопросы и дополнения</span></span>
+          <span class="fb-minutes">~ 30 сек</span>
+          <span class="fb-toggle">+</span>
+        </div>
+        <div class="fb-body"><div class="fb-body-inner">
+          <div class="field">
+            <label class="field-label" for="q_free">Вопросы, опасения, дополнения</label>
+            <textarea id="q_free" name="Что ещё" class="field-textarea"></textarea>
+          </div>
+        </div></div>
+      </div>
+
+      <div class="form-submit">
+        <button type="submit" class="submit-btn" id="submitBtn">Отправить заявку</button>
+        <div class="form-status" id="formStatus"></div>
+      </div>
+    </form>
+
+    <div class="success-message" id="successMessage">
+      <h3>Спасибо!</h3>
+      <p>Заявка получена. Мы свяжемся с вами в течение недели. Если срочно — пишите напрямую Ване: @d1_d57.</p>
     </div>
   </section>
 
@@ -571,6 +1209,148 @@
   </footer>
 
 </div>
+
+<script>
+(function() {
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyKo7DJ-G2wYGOV4_FgEkrUm5yyLWZXuvy6jKHhU2sxO65zFgA4lluriby-IozTJBvw/exec';
+
+  const form = document.getElementById('applyForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const statusEl = document.getElementById('formStatus');
+  const successEl = document.getElementById('successMessage');
+
+  document.querySelectorAll('.dir-item').forEach(item => {
+    const summary = item.querySelector('.dir-summary');
+    summary.addEventListener('click', () => item.classList.toggle('open'));
+  });
+
+  const formBlocks = document.querySelectorAll('.fb');
+  formBlocks.forEach(item => {
+    const summary = item.querySelector('.fb-summary');
+    summary.addEventListener('click', () => item.classList.toggle('open'));
+  });
+  if (formBlocks[0]) formBlocks[0].classList.add('open');
+
+  document.querySelectorAll('.radio-item input, .checkbox-item input').forEach(input => {
+    input.addEventListener('change', () => {
+      if (input.type === 'radio') {
+        const name = input.name;
+        document.querySelectorAll(`input[name="${name}"]`).forEach(i => {
+          i.closest('.radio-item').classList.toggle('checked', i.checked);
+        });
+      } else {
+        input.closest('.checkbox-item').classList.toggle('checked', input.checked);
+      }
+    });
+  });
+
+  document.querySelectorAll('input[name="q_format"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const branch = radio.dataset.branch;
+      document.querySelectorAll('.conditional[data-branch-target]').forEach(el => {
+        el.classList.toggle('active', el.dataset.branchTarget === branch);
+      });
+    });
+  });
+
+  document.querySelectorAll('input[name="q_source"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const condEl = document.getElementById('cond_source');
+      const show = radio.value === 'Другое' || radio.value === 'Из телеграм-канала';
+      condEl.classList.toggle('active', show);
+    });
+  });
+
+  function validateAndCollect() {
+    const errors = [];
+    const firstErrorBlock = { block: null };
+    const data = {};
+    data['Дата'] = new Date().toISOString();
+
+    form.querySelectorAll('[data-required]').forEach(el => {
+      if (!el.value.trim()) {
+        const blockEl = el.closest('.fb');
+        if (blockEl && !firstErrorBlock.block) firstErrorBlock.block = blockEl;
+        errors.push(el.previousElementSibling?.textContent?.replace(/\*$/, '').trim() || el.name);
+      } else {
+        data[el.name] = el.value.trim();
+      }
+    });
+
+    form.querySelectorAll('input:not([data-required]):not([type=radio]):not([type=checkbox]), textarea:not([data-required]), select').forEach(el => {
+      if (el.value.trim()) data[el.name] = el.value.trim();
+    });
+
+    document.querySelectorAll('.radio-group').forEach(group => {
+      const name = group.dataset.name;
+      const required = group.dataset.required === 'true';
+      const checked = group.querySelector('input:checked');
+      if (checked) data[name] = checked.value;
+      else if (required) {
+        const blockEl = group.closest('.fb');
+        if (blockEl && !firstErrorBlock.block) firstErrorBlock.block = blockEl;
+        errors.push(name);
+      }
+    });
+
+    document.querySelectorAll('.checkbox-group').forEach(group => {
+      const name = group.dataset.name;
+      const required = group.dataset.required === 'true';
+      const checked = [...group.querySelectorAll('input:checked')].map(i => i.value);
+      if (checked.length > 0) data[name] = checked.join('; ');
+      else if (required) {
+        const blockEl = group.closest('.fb');
+        if (blockEl && !firstErrorBlock.block) firstErrorBlock.block = blockEl;
+        errors.push(name);
+      }
+    });
+
+    return { data, errors, firstErrorBlock: firstErrorBlock.block };
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.className = 'form-status';
+    statusEl.textContent = '';
+
+    const { data, errors, firstErrorBlock } = validateAndCollect();
+
+    if (errors.length > 0) {
+      statusEl.className = 'form-status error';
+      statusEl.textContent = 'Заполните обязательные поля: ' + errors.slice(0, 3).join(', ') + (errors.length > 3 ? '…' : '');
+      if (firstErrorBlock) {
+        firstErrorBlock.classList.add('open');
+        setTimeout(() => {
+          firstErrorBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
+      return;
+    }
+
+    submitBtn.disabled = true;
+    statusEl.textContent = 'Отправляем…';
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(data)
+      });
+
+      form.style.display = 'none';
+      successEl.classList.add('visible');
+      successEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    } catch (err) {
+      console.error(err);
+      statusEl.className = 'form-status error';
+      statusEl.textContent = 'Ошибка отправки. Напишите напрямую Ване: @d1_d57';
+      submitBtn.disabled = false;
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
