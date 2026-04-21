@@ -3,7 +3,21 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Open call — Фрактальная Одиссея</title>
+<title>Фрактальная Одиссея — open call на фестиваль 23 мая 2026</title>
+<meta name="description" content="Matema-фест 2026 ищет соавторов программы. Научпоп-фестиваль о фракталах, самоподобии и геометрии. 23 мая, клуб Лахесис, Москва." />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Фрактальная Одиссея — open call" />
+<meta property="og:description" content="Matema-фест 2026 ищет соавторов программы. 6 лекций, 15 часовых станций, инсталляции, музыка. 23 мая, Лахесис, Москва. Заявки до 5 мая." />
+<meta property="og:site_name" content="Matema-фест 2026" />
+<meta property="og:locale" content="ru_RU" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Фрактальная Одиссея — open call" />
+<meta name="twitter:description" content="Ищем соавторов программы для Matema-феста 2026. Заявки до 5 мая." />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -52,36 +66,135 @@
     padding: 28px 36px 56px;
   }
 
-  /* ———— HEADER ———— */
-  header.top {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 24px;
-    padding-bottom: 16px;
+  /* ———— HEADER (top hero strip) ———— */
+  header.top-hero {
+    margin-bottom: 36px;
+    padding-bottom: 18px;
     border-bottom: 1px solid var(--rule);
-    margin-bottom: 40px;
   }
-  .fest-brand {
+  .top-line {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .brand-mark {
     font-family: "JetBrains Mono", monospace;
     font-size: 13px;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--accent);
     font-weight: 500;
   }
-  .top-meta {
+  .top-meta-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
     font-family: "JetBrains Mono", monospace;
-    font-size: 11px;
-    letter-spacing: 0.14em;
+  }
+  .date-hero {
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    line-height: 1;
+  }
+  .top-meta-row .dot {
+    color: var(--accent);
+    font-size: 18px;
+    opacity: 0.6;
+  }
+  .meta-pill {
+    font-size: 12px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--ink-soft);
+    font-weight: 500;
   }
-  .top-meta .sep { color: var(--accent); margin: 0 5px; }
+  .meta-deadline-inline {
+    margin-left: auto;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .meta-deadline-inline .days-left {
+    background: var(--accent);
+    color: #fff;
+    padding: 3px 8px;
+    margin-left: 6px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
 
   /* ———— HERO ———— */
   .hero {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: end;
+    position: relative;
+    isolation: isolate;
+    padding: 24px 0;
+  }
+  .hero-fractal {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-main, .hero-cta { position: relative; z-index: 1; }
+  .hero-main { min-width: 0; }
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    padding-bottom: 10px;
+  }
+  .hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Golos Text", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 22px;
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .hero-cta-btn:hover {
+    background: #a82820;
+    color: #fff;
+  }
+  .hero-cta-btn:active {
+    transform: translateY(1px);
+  }
+  .hero-cta-btn .arrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  .hero-cta-deadline {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .hero-cta-deadline strong {
+    color: var(--accent);
+    font-weight: 600;
   }
   .hero-subtitle {
     font-family: "JetBrains Mono", monospace;
@@ -112,6 +225,172 @@
     color: var(--ink);
     font-weight: 600;
   }
+  .hero-lede-sub {
+    margin-top: 14px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    max-width: 60ch;
+    color: var(--ink-soft);
+    opacity: 0.85;
+  }
+
+  /* ———— HERO META — date as hero ———— */
+  .hero-meta {
+    margin-top: 24px;
+    margin-bottom: 28px;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-family: "JetBrains Mono", monospace;
+  }
+  .hero-meta .date {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .hero-meta .meta-sep {
+    color: var(--accent);
+    font-size: 16px;
+    opacity: 0.7;
+  }
+  .hero-meta .meta-item {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .hero-meta .meta-deadline {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-left: auto;
+  }
+  .hero-meta .meta-deadline .days-left {
+    background: var(--accent);
+    color: #fff;
+    padding: 3px 8px;
+    margin-left: 6px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  /* ———— SPEAKERS STRIP ———— */
+  .speakers-strip {
+    margin-top: 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding-top: 16px;
+    border-top: 1px dotted rgba(45, 48, 40, 0.25);
+  }
+  .speakers-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .speakers-list {
+    font-family: "Golos Text", sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .speakers-list .sep {
+    color: var(--accent);
+    margin: 0 8px;
+    font-weight: 400;
+  }
+
+  /* ———— STICKY HEADER on scroll ———— */
+  .sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    z-index: 60;
+    transform: translateY(-100%);
+    transition: transform 0.25s ease;
+  }
+  .sticky-header.visible {
+    transform: translateY(0);
+  }
+  .sticky-header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 36px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+  .sticky-header .brand {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .sticky-header .meta {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .sticky-header .cta {
+    font-family: "Golos Text", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 7px 14px;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid var(--accent);
+    transition: background 0.15s ease;
+  }
+  .sticky-header .cta:hover {
+    background: #a82820;
+  }
+  @media (max-width: 700px) {
+    .sticky-header-inner { padding: 0 16px; gap: 10px; }
+    .sticky-header .meta { display: none; }
+    .sticky-header .brand { font-size: 11px; }
+  }
+
+  /* ———— BEFORE-FORM Q&A note ———— */
+  .form-questions-note {
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    background: rgba(201, 52, 40, 0.05);
+    border-left: 2px solid var(--accent);
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .form-questions-note a {
+    color: var(--accent);
+    border-bottom: 1px solid rgba(201,52,40,0.4);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .form-questions-note a:hover { border-bottom-color: var(--accent); }
 
   /* ———— SECTION LABEL ———— */
   .section-label {
@@ -251,87 +530,165 @@
     margin-bottom: 14px;
   }
 
-  .dir-accordion {
-    border-top: 1px solid var(--rule);
+  /* ———— DIRECTIONS — tiles 5-in-row ———— */
+  .dir-expand-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
   }
-  .dir-item {
-    border-bottom: 1px solid var(--rule);
-  }
-  .dir-summary {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 14px;
-    align-items: center;
-    padding: 14px 4px;
+  .dir-expand-all {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid var(--accent);
+    padding: 6px 12px;
     cursor: pointer;
-    user-select: none;
-    transition: background 0.15s ease;
+    font-weight: 500;
+    transition: background 0.15s ease, color 0.15s ease;
   }
-  .dir-summary:hover {
-    background: var(--accent-dim);
+  .dir-expand-all:hover {
+    background: var(--accent);
+    color: #fff;
   }
-  .dir-num {
+
+  .dir-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  .dir-tile {
+    position: relative;
+    padding: 18px 16px 18px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+  }
+  .dir-tile:hover {
+    background: #fff;
+    border-color: var(--accent);
+  }
+  .dir-tile.active {
+    background: #fff;
+    border-color: var(--accent);
+  }
+  .dir-tile .t-num {
     font-family: "JetBrains Mono", monospace;
     font-size: 11px;
+    letter-spacing: 0.14em;
     color: var(--accent);
     font-weight: 500;
-    letter-spacing: 0.05em;
+    margin-bottom: 10px;
   }
-  .dir-title {
+  .dir-tile .t-title {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .dir-tile .t-desc {
+    font-size: 12.5px;
+    line-height: 1.4;
+    color: var(--ink-soft);
+    flex: 1;
+  }
+  .dir-tile .t-more {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px dotted rgba(45, 48, 40, 0.3);
+  }
+  .dir-tile.active .t-more { color: var(--accent); }
+
+  /* Раскрывающийся блок снизу под рядом */
+  .dir-expand {
+    grid-column: 1 / -1;
+    background: #fff;
+    border: 1px solid var(--accent);
+    padding: 22px 24px 24px;
+    display: none;
+  }
+  .dir-expand.visible { display: block; }
+  .dir-expand .e-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .dir-expand .e-num {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .dir-expand .e-title {
     font-size: 18px;
     font-weight: 600;
+    letter-spacing: -0.015em;
     color: var(--ink);
-    letter-spacing: -0.005em;
   }
-  .dir-toggle {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 14px;
-    color: var(--accent);
-    font-weight: 500;
-    width: 16px;
-    text-align: center;
-    transition: transform 0.2s ease;
-  }
-  .dir-item.open .dir-toggle { transform: rotate(45deg); }
-
-  .dir-body {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-  .dir-item.open .dir-body {
-    max-height: 1200px;
-  }
-  .dir-body-inner {
-    padding: 4px 4px 20px;
-  }
-  .dir-desc {
+  .dir-expand .e-desc {
     font-size: 13.5px;
     color: var(--ink-soft);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     max-width: 70ch;
   }
-  .dir-list {
+  .dir-expand .e-close {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid var(--rule);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    cursor: pointer;
+    padding: 6px 12px;
+    font-weight: 500;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .dir-expand .e-close:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .dir-expand ul {
     list-style: none;
     columns: 2;
-    column-gap: 28px;
+    column-gap: 32px;
     font-size: 13.5px;
     line-height: 1.5;
   }
-  .dir-list li {
+  .dir-expand ul li {
     padding: 4px 0 4px 14px;
     position: relative;
     break-inside: avoid;
   }
-  .dir-list li::before {
+  .dir-expand ul li::before {
     content: "";
     position: absolute;
     left: 0;
-    top: 11px;
+    top: 12px;
     width: 6px;
     height: 1px;
     background: var(--accent);
   }
+  .dir-expand .e-section {
+    margin-bottom: 22px;
+  }
+  .dir-expand .e-section:last-child { margin-bottom: 0; }
 
   /* ———— FORM ———— */
   .form-section {
@@ -364,9 +721,22 @@
     font-size: 11px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--ink-soft);
     margin-top: 8px;
     font-weight: 500;
+  }
+  .form-section .form-total strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .form-section .form-kicker {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 10px;
   }
 
   /* ———— STICKY PROGRESS BAR ———— */
@@ -859,6 +1229,43 @@
     color: var(--ink);
     max-width: 80ch;
   }
+  .share-row {
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .share-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+    margin-right: 4px;
+  }
+  .share-btn {
+    font-family: "Golos Text", sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 7px 12px;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+    text-decoration: none;
+    border-radius: 0;
+  }
+  .share-btn:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+  .share-btn.copied {
+    background: var(--accent);
+    color: #fff;
+  }
   .gives .label,
   .contact .label {
     font-family: "JetBrains Mono", monospace;
@@ -891,7 +1298,12 @@
   /* ———— RESPONSIVE ———— */
   @media (max-width: 900px) {
     .page { padding: 24px 20px 44px; }
-    header.top { flex-direction: column; align-items: flex-start; gap: 6px; }
+    header.top-hero { margin-bottom: 28px; }
+    .top-line { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .date-hero { font-size: 22px; }
+    .meta-deadline-inline { margin-left: 0; width: 100%; margin-top: 8px; }
+    .hero { grid-template-columns: 1fr; gap: 20px; align-items: start; }
+    .hero-cta { align-items: flex-start; }
     .manifesto-branches { grid-template-columns: 1fr; padding-left: 0; }
     .manifesto-note { padding-left: 0; padding-right: 0; }
     .formats-grid { grid-template-columns: 1fr; }
@@ -901,33 +1313,68 @@
     .contact { text-align: left; }
     .form-section { padding: 22px 20px 26px; }
     .form-section h2 { font-size: 26px; }
-    .dir-list { columns: 1; }
+    .dir-grid { grid-template-columns: repeat(2, 1fr); }
+    .dir-tile { min-height: auto; }
+    .dir-expand ul { columns: 1; }
     .fb-summary { grid-template-columns: auto 1fr auto; gap: 10px; }
     .fb-minutes { display: none; }
     .fb-title-desc { display: block; margin-left: 0; margin-top: 2px; }
   }
   @media (max-width: 540px) {
     h1.title { font-size: 46px; }
+    .dir-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
+<!-- STICKY HEADER (appears on scroll) -->
+<div class="sticky-header" id="stickyHeader">
+  <div class="sticky-header-inner">
+    <span class="brand">Фрактальная Одиссея</span>
+    <span class="meta">23.05.2026 · Лахесис, Москва</span>
+    <a href="#apply" class="cta">Подать идею ↓</a>
+  </div>
+</div>
+
 <div class="page">
 
-  <header class="top">
-    <span class="fest-brand">Фрактальная Одиссея</span>
-    <span class="top-meta">
-      23 мая 2026 <span class="sep">·</span> Лахесис, Москва <span class="sep">·</span> 18+
-    </span>
+  <header class="top top-hero">
+    <div class="top-line">
+      <span class="brand-mark">Фрактальная Одиссея</span>
+    </div>
+    <div class="top-meta-row">
+      <span class="date-hero">23.05.2026</span>
+      <span class="dot">·</span>
+      <span class="meta-pill">Лахесис, Москва</span>
+      <span class="dot">·</span>
+      <span class="meta-pill">18+</span>
+      <span class="meta-deadline-inline">
+        Дедлайн 5 мая <span class="days-left" id="daysLeft">осталось — дней</span>
+      </span>
+    </div>
   </header>
 
   <section class="hero">
-    <div class="hero-subtitle">Matema-фест · 2026</div>
-    <h1 class="title">Open call</h1>
-    <p class="hero-lede">
-      Научпоп-фестиваль о фракталах, самоподобии и геометрии. В программе около 6 лекций и выступлений, <strong>15 часовых станций</strong>, плюс инсталляции и музыка.<br/><br/><strong>Ищем соавторов программы</strong> — подайте идею через форму ниже.
-    </p>
+    <canvas class="hero-fractal" id="heroFractal" aria-hidden="true"></canvas>
+    <div class="hero-main">
+      <div class="hero-subtitle">Matema-фест · 2026</div>
+      <h1 class="title">Open call</h1>
+      <p class="hero-lede">
+        Научпоп-фестиваль о фракталах, самоподобии и геометрии. В программе около 6 лекций и выступлений, <strong>15 часовых станций</strong>, плюс инсталляции и музыка.<br/><br/><strong>Ищем соавторов программы</strong> — подайте идею через форму ниже.
+      </p>
+      <p class="hero-lede-sub">
+        Особенно интересны проекты, у которых уже есть готовый формат и опыт: образовательные инициативы или авторы, которые уже проводили подобное где-то ещё. Главное — чтобы это было сделано и работало.
+      </p>
+      <div class="speakers-strip">
+        <span class="speakers-label">Среди спикеров</span>
+        <span class="speakers-list">Михаил Гельфанд<span class="sep">·</span>Александра Скрипченко<span class="sep">·</span>Григорий Тарасевич</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#apply" class="hero-cta-btn">Подать идею <span class="arrow">↓</span></a>
+      <div class="hero-cta-deadline">заявки до <strong>5 мая</strong></div>
+    </div>
   </section>
 
   <section class="manifesto">
@@ -938,23 +1385,19 @@
     </div>
 
     <div class="manifesto-main">
-      <p>Ищем <strong>опыт, который нельзя получить дома одному</strong>. Посетитель взаимодействует с необычным объектом или с человеком, который показывает, как это устроено, учит что-то делать, передаёт знание.</p>
+      <p>Станции, инсталляции и выступления, выстроенные вокруг <strong>опыта, который нельзя получить дома</strong>. Посетитель взаимодействует либо с автором, который его через этот опыт ведёт, либо с самим объектом. И уносит что-то новое: навык, знание, впечатление.</p>
     </div>
 
     <div class="manifesto-branches">
       <div class="manifesto-branch">
         <span class="b-mark">→</span>
-        <p><strong>Визуальный опыт на стыке науки и искусства.</strong> Который удивляет, запоминается, вызывает эмоцию.</p>
+        <p><strong>Визуальный опыт на стыке науки и искусства.</strong> Удивляет и остаётся в памяти.</p>
       </div>
       <div class="manifesto-branch">
         <span class="b-mark">→</span>
-        <p><strong>Активное участие.</strong> Посетитель создаёт объект или решает задачу — и, в идеале, получает материальный результат.</p>
+        <p><strong>Что-то, что можно унести с собой.</strong> Объект, навык, знание.</p>
       </div>
     </div>
-
-    <p class="manifesto-note">
-      <strong>Коллаборации.</strong> Рады образовательным и арт-проектам, которые хотят собрать и провести свою станцию.
-    </p>
   </section>
 
   <section class="formats">
@@ -996,120 +1439,64 @@
       <span class="rule"></span>
     </div>
 
-    <p class="directions-hint">Мы сгруппировали идеи по тому, какой опыт получает посетитель. Нажмите на направление, чтобы раскрыть примеры.</p>
+    <p class="directions-hint">Сгруппировали идеи по тому, какой опыт получает посетитель. Нажмите на направление, чтобы раскрыть примеры.</p>
 
-    <div class="dir-accordion">
-
-      <div class="dir-item">
-        <div class="dir-summary">
-          <span class="dir-num">01</span>
-          <span class="dir-title">Решают</span>
-          <span class="dir-toggle">+</span>
-        </div>
-        <div class="dir-body"><div class="dir-body-inner">
-          <p class="dir-desc">Головоломки, задачи, ребусы — там, где посетитель думает.</p>
-          <ul class="dir-list">
-            <li>Японские головоломки: закрашивание клеток, рисование циклов, расстановка зеркал</li>
-            <li>Задачи про фракталы, узлы, топологию</li>
-            <li>Лингвистические задачи</li>
-            <li>Математические фокусы с разбором</li>
-            <li>Математические настолки</li>
-            <li>Игра: отличите известный математический факт от открытой гипотезы</li>
-          </ul>
-        </div></div>
-      </div>
-
-      <div class="dir-item">
-        <div class="dir-summary">
-          <span class="dir-num">02</span>
-          <span class="dir-title">Делают руками</span>
-          <span class="dir-toggle">+</span>
-        </div>
-        <div class="dir-body"><div class="dir-body-inner">
-          <p class="dir-desc">Мастер-классы, где посетитель уносит физический результат или проходит через действие.</p>
-          <ul class="dir-list">
-            <li>Оригами: модульные фракталы по раздаткам</li>
-            <li>Тай-дай: окрашивание ткани геометрическими узорами (на улице)</li>
-            <li>Мандалы, ловцы снов</li>
-            <li>Рисование: спирографы, фрактальные шаблоны</li>
-            <li>Мыльные фракталы в проволочных каркасах</li>
-            <li>Геометрические конструкторы</li>
-            <li>Ткачество и плетение узлов</li>
-            <li>Пройти по кривой Коха, нарисованной на полу</li>
-          </ul>
-        </div></div>
-      </div>
-
-      <div class="dir-item">
-        <div class="dir-summary">
-          <span class="dir-num">03</span>
-          <span class="dir-title">Экспериментируют</span>
-          <span class="dir-toggle">+</span>
-        </div>
-        <div class="dir-body"><div class="dir-body-inner">
-          <p class="dir-desc">Опыты и наблюдения в реальном времени, с ведущим.</p>
-          <ul class="dir-list">
-            <li>Микроскоп: повседневные предметы под увеличением</li>
-            <li>Химические эксперименты (на улице)</li>
-            <li>Мастерская природных форм: раковины, листья, семена</li>
-            <li>Ботаническая экспозиция: романеско, папоротники, агавы</li>
-          </ul>
-        </div></div>
-      </div>
-
-      <div class="dir-item">
-        <div class="dir-summary">
-          <span class="dir-num">04</span>
-          <span class="dir-title">Создают вместе</span>
-          <span class="dir-toggle">+</span>
-        </div>
-        <div class="dir-body"><div class="dir-body-inner">
-          <p class="dir-desc">Коллективный объект, который растёт за счёт вклада посетителей.</p>
-          <ul class="dir-list">
-            <li>Треугольник Серпинского из скотча, собираемый к ночи</li>
-            <li>Стена с простым правилом: каждый добавляет один элемент</li>
-            <li>Цепочка из лего, продолжаемая по правилу самоподобия</li>
-            <li>Общий гобелен или мозаика</li>
-          </ul>
-        </div></div>
-      </div>
-
-      <div class="dir-item">
-        <div class="dir-summary">
-          <span class="dir-num">05</span>
-          <span class="dir-title">Смотрят и слушают</span>
-          <span class="dir-toggle">+</span>
-        </div>
-        <div class="dir-body"><div class="dir-body-inner">
-          <p class="dir-desc">Медленный, созерцательный опыт — объекты, перед которыми задерживаются.</p>
-          <ul class="dir-list">
-            <li>Песчаный маятник, рисующий фигуры</li>
-            <li>Таймлапс роста кристаллов на стене</li>
-            <li>Аудио-станция: фрактальные звуки в наушниках</li>
-            <li>Алгоритмическая проекция на стену</li>
-            <li>3D-печатные модели фракталов</li>
-            <li>Калейдоскопы</li>
-            <li>Научная фотография: макросъёмка и спутниковое</li>
-            <li>Архитектурные модели самоподобных структур</li>
-            <li>Звучащая инсталляция, реагирующая на касание</li>
-            <li>Фотобудка с фрактальным искажением</li>
-            <li>VR-сцена с фрактальным ландшафтом</li>
-            <li>Большой принт с гидом: медленный разбор одной картинки</li>
-            <li>Инсталляция, выглядящая по-разному с разных расстояний</li>
-            <li>Таймлайн «Самоподобие до Мандельброта»</li>
-          </ul>
-        </div></div>
-      </div>
-
+    <div class="dir-expand-row">
+      <button type="button" class="dir-expand-all" id="dirExpandAll">Развернуть все →</button>
     </div>
+
+    <div class="dir-grid" id="dirGrid">
+      <div class="dir-tile" data-dir="0">
+        <span class="t-num">01</span>
+        <span class="t-title">Решают</span>
+        <span class="t-desc">Головоломки, задачи, ребусы — там, где посетитель думает.</span>
+        <span class="t-more">6 примеров ↓</span>
+      </div>
+      <div class="dir-tile" data-dir="1">
+        <span class="t-num">02</span>
+        <span class="t-title">Делают руками</span>
+        <span class="t-desc">Мастер-классы, где посетитель уносит физический результат.</span>
+        <span class="t-more">8 примеров ↓</span>
+      </div>
+      <div class="dir-tile" data-dir="2">
+        <span class="t-num">03</span>
+        <span class="t-title">Эксперимен&shy;тируют</span>
+        <span class="t-desc">Опыты и наблюдения в реальном времени, с ведущим.</span>
+        <span class="t-more">4 примера ↓</span>
+      </div>
+      <div class="dir-tile" data-dir="3">
+        <span class="t-num">04</span>
+        <span class="t-title">Создают вместе</span>
+        <span class="t-desc">Коллективный объект, который растёт за счёт вклада посетителей.</span>
+        <span class="t-more">4 примера ↓</span>
+      </div>
+      <div class="dir-tile" data-dir="4">
+        <span class="t-num">05</span>
+        <span class="t-title">Смотрят и слушают</span>
+        <span class="t-desc">Медленный, созерцательный опыт — объекты, перед которыми задерживаются.</span>
+        <span class="t-more">14 примеров ↓</span>
+      </div>
+
+      <div class="dir-expand" id="dirExpand"></div>
+    </div>
+
+    <!--
+      Данные примеров для каждого направления лежат ниже в <script>.
+      Чтобы отредактировать список примеров — ищи "dirData" в <script> внизу страницы.
+    -->
   </section>
 
   <!-- ———————————————— FORM ———————————————— -->
   <section class="form-section" id="apply">
     <div class="form-intro">
+      <div class="form-kicker">→ ваш ход</div>
       <h2>Подать идею</h2>
       <p>Расскажите о своей станции, инсталляции или выступлении. Форма разбита на шесть блоков — раскрывайте по одному. Мы созвонимся с вами на следующей неделе.</p>
-      <div class="form-total">~ 7 минут на заполнение</div>
+      <div class="form-total">~ 7 минут · заявки до <strong>5 мая 2026</strong></div>
+    </div>
+
+    <div class="form-questions-note">
+      Есть вопрос перед заполнением? Напишите Ване — <a href="https://t.me/d1_d57" target="_blank" rel="noopener">@d1_d57</a> в Telegram. Отвечает в течение дня.
     </div>
 
     <form id="applyForm" novalidate>
@@ -1351,7 +1738,7 @@
 
           <div class="field">
             <label class="field-label" for="q_materials">Нужны ли материалы?<span class="req">*</span></label>
-            <div class="field-hint">Мы оплачиваем разумные расходы. Что нужно и примерно на какую сумму.</div>
+            <div class="field-hint">Мы оплачиваем разумные расходы — ориентировочно 2–5 тыс ₽ на станцию, обсуждается индивидуально. Что нужно и примерно на какую сумму.</div>
             <textarea id="q_materials" name="Материалы" class="field-textarea" data-required></textarea>
           </div>
 
@@ -1452,6 +1839,11 @@
     <div class="gives">
       <span class="label">Что мы даём</span>
       Материалы оплачиваем, волонтёров-помощников находим, пространство готовим. Аудитория — 250+ заинтересованных взрослых. Подробнее о проекте — в канале <a class="link" href="https://t.me/turings_crossword" target="_blank" rel="noopener">Кроссворд Тьюринга</a>.
+      <div class="share-row">
+        <span class="share-label">Знаете кого-то, кому подходит?</span>
+        <button type="button" class="share-btn" id="shareCopy" data-action="copy">Скопировать ссылку</button>
+        <a class="share-btn" href="https://t.me/share/url?url=https%3A%2F%2Fd1-d57.github.io%2Fmatema-fest-opencall%2F&text=Matema-%D1%84%D0%B5%D1%81%D1%82%202026%20%E2%80%94%20open%20call" target="_blank" rel="noopener">В Telegram</a>
+      </div>
     </div>
     <div class="contact">
       <span class="label">По вопросам</span>
@@ -1500,11 +1892,168 @@
   const previewBack = document.getElementById('previewBack');
   const previewStatus = document.getElementById('previewStatus');
 
-  // ———— Directions accordion ————
-  document.querySelectorAll('.dir-item').forEach(item => {
-    const summary = item.querySelector('.dir-summary');
-    summary.addEventListener('click', () => item.classList.toggle('open'));
+  // ———— Directions tiles ————
+  // Данные примеров для каждого направления. Редактируй их здесь, если надо.
+  const dirData = [
+    {
+      num: '01',
+      title: 'Решают',
+      desc: 'Головоломки, задачи, ребусы — там, где посетитель думает.',
+      items: [
+        'Японские головоломки: закрашивание клеток, рисование циклов, расстановка зеркал',
+        'Задачи про фракталы, узлы, топологию',
+        'Лингвистические задачи',
+        'Математические фокусы с разбором',
+        'Математические настолки',
+        'Игра: отличите известный математический факт от открытой гипотезы'
+      ]
+    },
+    {
+      num: '02',
+      title: 'Делают руками',
+      desc: 'Мастер-классы, где посетитель уносит физический результат или проходит через действие.',
+      items: [
+        'Оригами: модульные фракталы по раздаткам',
+        'Тай-дай: окрашивание ткани геометрическими узорами (на улице)',
+        'Мандалы, ловцы снов',
+        'Рисование: спирографы, фрактальные шаблоны',
+        'Мыльные фракталы в проволочных каркасах',
+        'Геометрические конструкторы',
+        'Ткачество и плетение узлов',
+        'Пройти по кривой Коха, нарисованной на полу'
+      ]
+    },
+    {
+      num: '03',
+      title: 'Экспериментируют',
+      desc: 'Опыты и наблюдения в реальном времени, с ведущим.',
+      items: [
+        'Микроскоп: повседневные предметы под увеличением',
+        'Химические эксперименты (на улице)',
+        'Мастерская природных форм: раковины, листья, семена',
+        'Ботаническая экспозиция: романеско, папоротники, агавы'
+      ]
+    },
+    {
+      num: '04',
+      title: 'Создают вместе',
+      desc: 'Коллективный объект, который растёт за счёт вклада посетителей.',
+      items: [
+        'Треугольник Серпинского из скотча, собираемый к ночи',
+        'Стена с простым правилом: каждый добавляет один элемент',
+        'Цепочка из лего, продолжаемая по правилу самоподобия',
+        'Общий гобелен или мозаика'
+      ]
+    },
+    {
+      num: '05',
+      title: 'Смотрят и слушают',
+      desc: 'Медленный, созерцательный опыт — объекты, перед которыми задерживаются.',
+      items: [
+        'Песчаный маятник, рисующий фигуры',
+        'Таймлапс роста кристаллов на стене',
+        'Аудио-станция: фрактальные звуки в наушниках',
+        'Алгоритмическая проекция на стену',
+        '3D-печатные модели фракталов',
+        'Калейдоскопы',
+        'Научная фотография: макросъёмка и спутниковое',
+        'Архитектурные модели самоподобных структур',
+        'Звучащая инсталляция, реагирующая на касание',
+        'Фотобудка с фрактальным искажением',
+        'VR-сцена с фрактальным ландшафтом',
+        'Большой принт с гидом: медленный разбор одной картинки',
+        'Инсталляция, выглядящая по-разному с разных расстояний',
+        'Таймлайн «Самоподобие до Мандельброта»'
+      ]
+    }
+  ];
+
+  function escHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  const dirTiles = document.querySelectorAll('.dir-tile');
+  const dirExpand = document.getElementById('dirExpand');
+  const dirExpandAll = document.getElementById('dirExpandAll');
+  let dirOpen = -1; // -1: закрыто, -2: все, 0-4: одно
+
+  function closeDir() {
+    if (dirExpand) {
+      dirExpand.classList.remove('visible');
+      dirExpand.innerHTML = '';
+    }
+    dirTiles.forEach(t => t.classList.remove('active'));
+    dirOpen = -1;
+    if (dirExpandAll) dirExpandAll.textContent = 'Развернуть все →';
+  }
+
+  function renderDirSingle(idx) {
+    if (!dirExpand) return;
+    const d = dirData[idx];
+    const items = d.items.map(x => `<li>${escHtml(x)}</li>`).join('');
+    dirExpand.innerHTML = `
+      <div class="e-head">
+        <span class="e-num">${d.num}</span>
+        <span class="e-title">${escHtml(d.title)}</span>
+        <button class="e-close" type="button">закрыть ✕</button>
+      </div>
+      <p class="e-desc">${escHtml(d.desc)}</p>
+      <ul>${items}</ul>
+    `;
+    dirExpand.querySelector('.e-close').addEventListener('click', closeDir);
+  }
+
+  function renderDirAll() {
+    if (!dirExpand) return;
+    const sections = dirData.map(d => `
+      <div class="e-section">
+        <div class="e-head" style="margin-bottom: 10px;">
+          <span class="e-num">${d.num}</span>
+          <span class="e-title">${escHtml(d.title)}</span>
+        </div>
+        <p class="e-desc">${escHtml(d.desc)}</p>
+        <ul>${d.items.map(x => `<li>${escHtml(x)}</li>`).join('')}</ul>
+      </div>
+    `).join('');
+    dirExpand.innerHTML = `
+      ${sections}
+      <div style="text-align: right; margin-top: 18px;">
+        <button class="e-close" type="button">свернуть всё ✕</button>
+      </div>
+    `;
+    dirExpand.querySelector('.e-close').addEventListener('click', closeDir);
+  }
+
+  dirTiles.forEach(tile => {
+    tile.addEventListener('click', () => {
+      const idx = parseInt(tile.dataset.dir, 10);
+      if (dirOpen === idx) {
+        closeDir();
+        return;
+      }
+      dirTiles.forEach(t => t.classList.remove('active'));
+      tile.classList.add('active');
+      renderDirSingle(idx);
+      if (dirExpand) dirExpand.classList.add('visible');
+      dirOpen = idx;
+      if (dirExpandAll) dirExpandAll.textContent = 'Развернуть все →';
+    });
   });
+
+  if (dirExpandAll) {
+    dirExpandAll.addEventListener('click', () => {
+      if (dirOpen === -2) {
+        // Уже развёрнуто всё — свернуть
+        closeDir();
+      } else {
+        dirTiles.forEach(t => t.classList.add('active'));
+        renderDirAll();
+        if (dirExpand) dirExpand.classList.add('visible');
+        dirOpen = -2;
+        dirExpandAll.textContent = 'Свернуть всё ←';
+      }
+    });
+  }
 
   // ———— Form blocks accordion ————
   const formBlocks = document.querySelectorAll('.fb');
@@ -1512,7 +2061,7 @@
     const summary = item.querySelector('.fb-summary');
     summary.addEventListener('click', () => item.classList.toggle('open'));
   });
-  if (formBlocks[0]) formBlocks[0].classList.add('open');
+  // По умолчанию все блоки закрыты — пользователь видит структуру из 6 пунктов
 
   // ———— Radio/checkbox highlighting ————
   function updateCheckStates() {
@@ -1936,6 +2485,160 @@
   loadDraft();
   updateStickyProgress();
   updateStickyVisibility();
+
+  // Кнопка "Подать идею" сверху — фокус на имя после скролла
+  const heroCta = document.querySelector('.hero-cta-btn');
+  if (heroCta) {
+    heroCta.addEventListener('click', (e) => {
+      setTimeout(() => {
+        const firstBlock = document.querySelector('.fb[data-block="1"]');
+        if (firstBlock) firstBlock.classList.add('open');
+        const nameInput = document.getElementById('q_name');
+        if (nameInput && !nameInput.value) {
+          nameInput.focus({ preventScroll: true });
+        }
+      }, 600);
+    });
+  }
+
+  // Кнопка "Скопировать ссылку"
+  const shareCopyBtn = document.getElementById('shareCopy');
+  if (shareCopyBtn) {
+    shareCopyBtn.addEventListener('click', async () => {
+      const url = window.location.href.split('#')[0];
+      try {
+        await navigator.clipboard.writeText(url);
+        const original = shareCopyBtn.textContent;
+        shareCopyBtn.textContent = 'Скопировано ✓';
+        shareCopyBtn.classList.add('copied');
+        setTimeout(() => {
+          shareCopyBtn.textContent = original;
+          shareCopyBtn.classList.remove('copied');
+        }, 2000);
+      } catch (err) {
+        prompt('Скопируйте ссылку:', url);
+      }
+    });
+  }
+
+  // ———— Счётчик дней до дедлайна ————
+  const daysLeftEl = document.getElementById('daysLeft');
+  if (daysLeftEl) {
+    const deadline = new Date(2026, 4, 5); // 5 мая 2026 (месяц с 0)
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const diff = Math.ceil((deadline - today) / (1000 * 60 * 60 * 24));
+    if (diff > 0) {
+      const word = pluralDays(diff);
+      daysLeftEl.textContent = `осталось ${diff} ${word}`;
+    } else if (diff === 0) {
+      daysLeftEl.textContent = `последний день`;
+    } else {
+      daysLeftEl.style.display = 'none';
+    }
+  }
+
+  function pluralDays(n) {
+    const m = n % 10;
+    const t = n % 100;
+    if (t >= 11 && t <= 14) return 'дней';
+    if (m === 1) return 'день';
+    if (m >= 2 && m <= 4) return 'дня';
+    return 'дней';
+  }
+
+  // ———— Sticky header при скролле ————
+  const stickyHeader = document.getElementById('stickyHeader');
+  const heroSection = document.querySelector('.hero');
+  if (stickyHeader && heroSection) {
+    let stickyHeaderShown = false;
+    const checkSticky = () => {
+      const heroBottom = heroSection.getBoundingClientRect().bottom;
+      const shouldShow = heroBottom < 0;
+      if (shouldShow !== stickyHeaderShown) {
+        stickyHeader.classList.toggle('visible', shouldShow);
+        stickyHeaderShown = shouldShow;
+      }
+    };
+    let stickyRaf = null;
+    window.addEventListener('scroll', () => {
+      if (stickyRaf) return;
+      stickyRaf = requestAnimationFrame(() => {
+        checkSticky();
+        stickyRaf = null;
+      });
+    }, { passive: true });
+    checkSticky();
+  }
+
+  // ———— Hero fractal: Koch line ————
+  const heroFractal = document.getElementById('heroFractal');
+  if (heroFractal) {
+    const ACCENT = '#c93428';
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+    function hexToRGBA(hex, a) {
+      const r = parseInt(hex.slice(1,3), 16);
+      const g = parseInt(hex.slice(3,5), 16);
+      const b = parseInt(hex.slice(5,7), 16);
+      return `rgba(${r},${g},${b},${a})`;
+    }
+
+    function kochPoints(p1, p2, depth) {
+      if (depth === 0) return [p1];
+      const dx = p2[0] - p1[0];
+      const dy = p2[1] - p1[1];
+      const a = [p1[0] + dx/3, p1[1] + dy/3];
+      const c = [p1[0] + 2*dx/3, p1[1] + 2*dy/3];
+      const angle = Math.atan2(dy, dx) - Math.PI/3;
+      const len = Math.hypot(dx, dy) / 3;
+      const b = [a[0] + len*Math.cos(angle), a[1] + len*Math.sin(angle)];
+      return [
+        ...kochPoints(p1, a, depth-1),
+        ...kochPoints(a, b, depth-1),
+        ...kochPoints(b, c, depth-1),
+        ...kochPoints(c, p2, depth-1)
+      ];
+    }
+
+    function drawKochLine(canvas) {
+      const rect = canvas.getBoundingClientRect();
+      canvas.width = rect.width * DPR;
+      canvas.height = rect.height * DPR;
+      const ctx = canvas.getContext('2d');
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      const w = rect.width, h = rect.height;
+      ctx.clearRect(0, 0, w, h);
+
+      // Горизонтальная линия Коха: концы у нижнего края, центр вырастает вверх
+      const baseY = h * 0.85;
+      const startX = w * 0.04;
+      const endX = w * 0.96;
+      const p1 = [startX, baseY];
+      const p2 = [endX, baseY];
+
+      const depth = 4;
+      const pts = kochPoints(p1, p2, depth);
+      pts.push(p2);
+
+      ctx.beginPath();
+      ctx.moveTo(pts[0][0], pts[0][1]);
+      for (let i = 1; i < pts.length; i++) {
+        ctx.lineTo(pts[i][0], pts[i][1]);
+      }
+      ctx.strokeStyle = hexToRGBA(ACCENT, 0.16);
+      ctx.lineWidth = 1.2;
+      ctx.lineJoin = 'round';
+      ctx.stroke();
+    }
+
+    drawKochLine(heroFractal);
+    let kochResizeTimer = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(kochResizeTimer);
+      kochResizeTimer = setTimeout(() => drawKochLine(heroFractal), 150);
+    });
+  }
 })();
 </script>
 </script>
