@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Фрактальная Одиссея — open call на фестиваль 23 мая 2026</title>
-<meta name="description" content="Matema-фест 2026 ищет соавторов программы. Научпоп-фестиваль о фракталах, самоподобии и геометрии. 23 мая, клуб Лахесис, Москва." />
+<title>Фрактальная Одиссея — Matema-фест 2026</title>
+<meta name="description" content="Фестиваль для взрослых о фракталах, самоподобии и симметриях. 23 мая, Чистые пруды: библиотека Достоевского, Лахесис и общий двор. Open call для соавторов программы до 5 мая." />
 
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Фрактальная Одиссея — open call" />
-<meta property="og:description" content="Matema-фест 2026 ищет соавторов программы. 6 лекций, 15 часовых станций, инсталляции, музыка. 23 мая, Лахесис, Москва. Заявки до 5 мая." />
+<meta property="og:title" content="Фрактальная Одиссея — Matema-фест 2026" />
+<meta property="og:description" content="Фестиваль для взрослых о фракталах, самоподобии и симметриях. 23 мая, Чистые пруды. Open call для соавторов программы до 5 мая." />
 <meta property="og:site_name" content="Matema-фест 2026" />
 <meta property="og:locale" content="ru_RU" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Фрактальная Одиссея — open call" />
-<meta name="twitter:description" content="Ищем соавторов программы для Matema-феста 2026. Заявки до 5 мая." />
+<meta name="twitter:title" content="Фрактальная Одиссея — Matema-фест 2026" />
+<meta name="twitter:description" content="23 мая, Чистые пруды. Фестиваль для взрослых о фракталах, самоподобии и симметриях. Open call до 5 мая." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -131,14 +131,10 @@
 
   /* ———— HERO ———— */
   .hero {
-    margin-bottom: 40px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 32px;
-    align-items: end;
+    margin-bottom: 36px;
     position: relative;
     isolation: isolate;
-    padding: 24px 0;
+    padding: 20px 0 0;
   }
   .hero-fractal {
     position: absolute;
@@ -148,14 +144,50 @@
     z-index: 0;
     pointer-events: none;
   }
-  .hero-main, .hero-cta { position: relative; z-index: 1; }
+  .hero-main,
+  .hero-divider,
+  .hero-opencall { position: relative; z-index: 1; }
+
   .hero-main { min-width: 0; }
-  .hero-cta {
+
+  /* Раздел между описанием фестиваля и open call */
+  .hero-divider {
+    border: 0;
+    border-top: 1px solid var(--rule);
+    margin: 28px 0 22px;
+    opacity: 0.5;
+  }
+
+  /* ———— HERO OPEN CALL ———— */
+  .hero-opencall {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: start;
+  }
+  .opencall-text { min-width: 0; }
+  .opencall-label {
+    display: block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .opencall-text p {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .opencall-cta {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 10px;
-    padding-bottom: 10px;
+    gap: 8px;
+    padding-top: 4px;
   }
   .hero-cta-btn {
     display: inline-flex;
@@ -208,17 +240,17 @@
   h1.title {
     font-family: "Golos Text", sans-serif;
     font-weight: 700;
-    font-size: clamp(56px, 9vw, 120px);
-    line-height: 0.95;
-    letter-spacing: -0.04em;
+    font-size: clamp(40px, 5.4vw, 68px);
+    line-height: 1;
+    letter-spacing: -0.03em;
     color: var(--ink);
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
   .hero-lede {
     font-size: 17px;
     line-height: 1.5;
-    max-width: 72ch;
-    color: var(--ink-soft);
+    max-width: 78ch;
+    color: var(--ink);
     font-weight: 400;
   }
   .hero-lede strong {
@@ -227,11 +259,47 @@
   }
   .hero-lede-sub {
     margin-top: 14px;
-    font-size: 13.5px;
-    line-height: 1.5;
-    max-width: 60ch;
+    font-size: 15.5px;
+    line-height: 1.55;
+    max-width: 78ch;
     color: var(--ink-soft);
-    opacity: 0.85;
+  }
+  .hero-lede-sub p {
+    margin-bottom: 10px;
+  }
+  .hero-lede-sub p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ———— SPEAKERS STRIP ———— */
+  .speakers-strip {
+    margin-top: 18px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    padding-top: 12px;
+    border-top: 1px dotted rgba(45, 48, 40, 0.25);
+  }
+  .speakers-label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .speakers-list {
+    font-family: "Golos Text", sans-serif;
+    font-size: 13.5px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .speakers-list .sep {
+    color: var(--accent);
+    margin: 0 8px;
+    font-weight: 400;
   }
 
   /* ———— HERO META — date as hero ———— */
@@ -282,17 +350,16 @@
     letter-spacing: 0.05em;
   }
 
-  /* ———— SPEAKERS STRIP ———— */
-  .speakers-strip {
-    margin-top: 24px;
+  /* ———— PARTNERS STRIP ———— */
+  .partners-strip {
+    margin-top: 8px;
     display: flex;
     align-items: baseline;
     gap: 14px;
     flex-wrap: wrap;
-    padding-top: 16px;
-    border-top: 1px dotted rgba(45, 48, 40, 0.25);
+    padding-top: 8px;
   }
-  .speakers-label {
+  .partners-label {
     font-family: "JetBrains Mono", monospace;
     font-size: 10.5px;
     letter-spacing: 0.18em;
@@ -301,13 +368,13 @@
     font-weight: 500;
     flex-shrink: 0;
   }
-  .speakers-list {
+  .partners-list {
     font-family: "Golos Text", sans-serif;
-    font-size: 14px;
+    font-size: 13.5px;
     color: var(--ink);
     font-weight: 500;
   }
-  .speakers-list .sep {
+  .partners-list .sep {
     color: var(--accent);
     margin: 0 8px;
     font-weight: 400;
@@ -354,24 +421,30 @@
     color: var(--ink-soft);
     font-weight: 500;
   }
-  .sticky-header .cta {
-    font-family: "Golos Text", sans-serif;
-    font-size: 13px;
+  .sticky-header .sticky-deadline {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
     font-weight: 600;
-    padding: 7px 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .sticky-header .sticky-deadline .days {
     background: var(--accent);
     color: #fff;
-    text-decoration: none;
-    border: 1px solid var(--accent);
-    transition: background 0.15s ease;
-  }
-  .sticky-header .cta:hover {
-    background: #a82820;
+    padding: 3px 8px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
   }
   @media (max-width: 700px) {
     .sticky-header-inner { padding: 0 16px; gap: 10px; }
     .sticky-header .meta { display: none; }
     .sticky-header .brand { font-size: 11px; }
+    .sticky-header .sticky-deadline { font-size: 10px; }
+    .sticky-header .sticky-deadline .days { padding: 2px 6px; }
   }
 
   /* ———— BEFORE-FORM Q&A note ———— */
@@ -569,14 +642,29 @@
     min-height: 150px;
     display: flex;
     flex-direction: column;
+    -webkit-tap-highlight-color: rgba(201, 52, 40, 0.15);
+    user-select: none;
   }
-  .dir-tile:hover {
-    background: #fff;
-    border-color: var(--accent);
+  /* Дочерние span не должны ловить клик — всё через родителя */
+  .dir-tile > * {
+    pointer-events: none;
+  }
+  /* Но внутри раскрытого t-inline должны работать ссылки/кнопки */
+  .dir-tile .t-inline,
+  .dir-tile .t-inline * {
+    pointer-events: auto;
+  }
+  /* hover только на устройствах с реальным курсором — чтобы на тач не залипал */
+  @media (hover: hover) {
+    .dir-tile:hover {
+      background: #fff;
+      border-color: var(--accent);
+    }
   }
   .dir-tile.active {
     background: #fff;
     border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent);
   }
   .dir-tile .t-num {
     font-family: "JetBrains Mono", monospace;
@@ -611,6 +699,36 @@
     border-top: 1px dotted rgba(45, 48, 40, 0.3);
   }
   .dir-tile.active .t-more { color: var(--accent); }
+
+  /* In-tile expand — для мобильного */
+  .t-inline {
+    display: none;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--accent);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .t-inline .ti-desc {
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+  }
+  .t-inline ul {
+    list-style: none;
+  }
+  .t-inline ul li {
+    padding: 3px 0 3px 14px;
+    position: relative;
+  }
+  .t-inline ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 6px;
+    height: 1px;
+    background: var(--accent);
+  }
 
   /* Раскрывающийся блок снизу под рядом */
   .dir-expand {
@@ -689,6 +807,36 @@
     margin-bottom: 22px;
   }
   .dir-expand .e-section:last-child { margin-bottom: 0; }
+
+  /* ———— WHAT WE GIVE ———— */
+  .we-give {
+    margin-bottom: 32px;
+  }
+  .wg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 28px;
+  }
+  .wg-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--ink);
+    padding: 3px 0;
+  }
+  .wg-item strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .wg-mark {
+    color: var(--accent);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
 
   /* ———— FORM ———— */
   .form-section {
@@ -1302,8 +1450,10 @@
     .top-line { flex-direction: column; align-items: flex-start; gap: 8px; }
     .date-hero { font-size: 22px; }
     .meta-deadline-inline { margin-left: 0; width: 100%; margin-top: 8px; }
-    .hero { grid-template-columns: 1fr; gap: 20px; align-items: start; }
-    .hero-cta { align-items: flex-start; }
+    .hero { padding-top: 10px; }
+    .hero-opencall { grid-template-columns: 1fr; gap: 16px; align-items: start; }
+    .opencall-cta { align-items: flex-start; }
+    .hero-divider { margin: 22px 0 18px; }
     .manifesto-branches { grid-template-columns: 1fr; padding-left: 0; }
     .manifesto-note { padding-left: 0; padding-right: 0; }
     .formats-grid { grid-template-columns: 1fr; }
@@ -1315,14 +1465,42 @@
     .form-section h2 { font-size: 26px; }
     .dir-grid { grid-template-columns: repeat(2, 1fr); }
     .dir-tile { min-height: auto; }
-    .dir-expand ul { columns: 1; }
+    .dir-expand { display: none !important; }
+    .dir-tile.active .t-inline { display: block; }
+    /* На мобильном пятая плитка растягивается на всю ширину если одна осталась */
+    .dir-tile:nth-child(5) { grid-column: 1 / -1; }
+    .wg-grid { grid-template-columns: 1fr; gap: 6px; }
     .fb-summary { grid-template-columns: auto 1fr auto; gap: 10px; }
     .fb-minutes { display: none; }
     .fb-title-desc { display: block; margin-left: 0; margin-top: 2px; }
+    /* iOS Safari: предотвращаем zoom при фокусе на input */
+    .field-input,
+    .field-textarea,
+    .field-select {
+      font-size: 16px;
+    }
+    /* Улучшаем тап по интерактивным элементам */
+    .fb-summary,
+    .dir-tile,
+    .dir-expand-all,
+    .hero-cta-btn,
+    .share-btn,
+    .consent-field,
+    .form-submit button,
+    .preview-modal button {
+      -webkit-tap-highlight-color: rgba(201, 52, 40, 0.12);
+    }
   }
   @media (max-width: 540px) {
-    h1.title { font-size: 46px; }
+    h1.title {
+      font-size: 40px;
+      line-height: 1.02;
+      text-wrap: balance;
+    }
     .dir-grid { grid-template-columns: 1fr; }
+    .dir-tile:nth-child(5) { grid-column: auto; }
+    /* Sticky header + progress не должны налезать на контент */
+    .page { padding-bottom: 60px; }
   }
 </style>
 </head>
@@ -1332,8 +1510,10 @@
 <div class="sticky-header" id="stickyHeader">
   <div class="sticky-header-inner">
     <span class="brand">Фрактальная Одиссея</span>
-    <span class="meta">23.05.2026 · Лахесис, Москва</span>
-    <a href="#apply" class="cta">Подать идею ↓</a>
+    <span class="meta">23 мая · Чистые пруды · 18+</span>
+    <span class="sticky-deadline">
+      Дедлайн 5 мая <span class="days" data-days-left>—</span>
+    </span>
   </div>
 </div>
 
@@ -1344,36 +1524,54 @@
       <span class="brand-mark">Фрактальная Одиссея</span>
     </div>
     <div class="top-meta-row">
-      <span class="date-hero">23.05.2026</span>
+      <span class="date-hero">23 мая</span>
       <span class="dot">·</span>
-      <span class="meta-pill">Лахесис, Москва</span>
+      <span class="meta-pill">Чистые пруды</span>
       <span class="dot">·</span>
       <span class="meta-pill">18+</span>
       <span class="meta-deadline-inline">
-        Дедлайн 5 мая <span class="days-left" id="daysLeft">осталось — дней</span>
+        Дедлайн 5 мая <span class="days-left" data-days-left>осталось — дней</span>
       </span>
     </div>
   </header>
 
   <section class="hero">
     <canvas class="hero-fractal" id="heroFractal" aria-hidden="true"></canvas>
+
     <div class="hero-main">
       <div class="hero-subtitle">Matema-фест · 2026</div>
-      <h1 class="title">Open call</h1>
+      <h1 class="title">Фрактальная Одиссея</h1>
+
       <p class="hero-lede">
-        Научпоп-фестиваль о фракталах, самоподобии и геометрии. В программе около 6 лекций и выступлений, <strong>15 часовых станций</strong>, плюс инсталляции и музыка.<br/><br/><strong>Ищем соавторов программы</strong> — подайте идею через форму ниже.
+        Научпоп-фестиваль для взрослых о фракталах, самоподобии и симметриях в жизни, науке и искусстве. В программе около 6 выступлений, <strong>15 часовых станций</strong>, музыка и инсталляции.
       </p>
-      <p class="hero-lede-sub">
-        Особенно интересны проекты, у которых уже есть готовый формат и опыт: образовательные инициативы или авторы, которые уже проводили подобное где-то ещё. Главное — чтобы это было сделано и работало.
-      </p>
+
+      <div class="hero-lede-sub">
+        <p>Продолжение Matema-феста 2025. Два фестиваля в одном: дневной и вечерне-ночной, с утра до поздней ночи. На двух соседних площадках Чистых прудов — библиотеке Достоевского и клубе Лахесис, с общим двором. Начинаем в библиотеке, вечером переходим в клуб. Ночная музыкальная часть работает и как отдельное событие.</p>
+        <p>Аудитория — взрослые, которым интересны наука, искусство и интеллектуальный досуг: технари и гуманитарии, преподаватели, студенты, учёные, журналисты.</p>
+      </div>
+
       <div class="speakers-strip">
         <span class="speakers-label">Среди спикеров</span>
         <span class="speakers-list">Михаил Гельфанд<span class="sep">·</span>Александра Скрипченко<span class="sep">·</span>Григорий Тарасевич</span>
       </div>
+      <div class="partners-strip">
+        <span class="partners-label">Делают вместе</span>
+        <span class="partners-list">Кроссворд Тьюринга<span class="sep">·</span>Летняя Школа<span class="sep">·</span>Розетка<span class="sep">·</span>Лахесис</span>
+      </div>
     </div>
-    <div class="hero-cta">
-      <a href="#apply" class="hero-cta-btn">Подать идею <span class="arrow">↓</span></a>
-      <div class="hero-cta-deadline">заявки до <strong>5 мая</strong></div>
+
+    <hr class="hero-divider" />
+
+    <div class="hero-opencall">
+      <div class="opencall-text">
+        <span class="opencall-label">Open call</span>
+        <p>Ищем соавторов программы. Особенно интересны проекты и авторы с готовым форматом и опытом — те, кто уже делал что-то подобное и понимает, как это работает.</p>
+      </div>
+      <div class="opencall-cta">
+        <a href="#apply" class="hero-cta-btn">Подать идею <span class="arrow">↓</span></a>
+        <div class="hero-cta-deadline">заявки до <strong>5 мая</strong></div>
+      </div>
     </div>
   </section>
 
@@ -1385,17 +1583,17 @@
     </div>
 
     <div class="manifesto-main">
-      <p>Станции, инсталляции и выступления, выстроенные вокруг <strong>опыта, который нельзя получить дома</strong>. Посетитель взаимодействует либо с автором, который его через этот опыт ведёт, либо с самим объектом. И уносит что-то новое: навык, знание, впечатление.</p>
+      <p>Станции, инсталляции и выступления, построенные вокруг <strong>опыта, который нельзя получить дома</strong>. Что-то, что работает только вживую — рядом с автором или рядом с самим объектом.</p>
     </div>
 
     <div class="manifesto-branches">
       <div class="manifesto-branch">
         <span class="b-mark">→</span>
-        <p><strong>Визуальный опыт на стыке науки и искусства.</strong> Удивляет и остаётся в памяти.</p>
+        <p><strong>Визуальность.</strong> На стыке науки и искусства — то, что удивляет и запоминается.</p>
       </div>
       <div class="manifesto-branch">
         <span class="b-mark">→</span>
-        <p><strong>Что-то, что можно унести с собой.</strong> Объект, навык, знание.</p>
+        <p><strong>Интерактивность.</strong> Что-то делаешь — и уносишь с собой: навык, знание, впечатление.</p>
       </div>
     </div>
   </section>
@@ -1413,21 +1611,21 @@
           <h3 class="format-name">Станция</h3>
           <span class="format-time">· 1 час</span>
         </div>
-        <p class="format-desc">Вы на точке весь слот, к вам подходят в любой момент — кто-то на 5 минут, кто-то на полчаса. Основной формат.</p>
+        <p class="format-desc">Вы на точке весь час. К вам подходят — кто на пять минут, кто на полчаса. Основной формат.</p>
       </div>
       <div class="format">
         <div class="format-head">
           <h3 class="format-name">Инсталляция</h3>
           <span class="format-time">· весь вечер</span>
         </div>
-        <p class="format-desc">Объект живёт сам, с постером и, опционально, волонтёром-смотрящим. Слот не занимает.</p>
+        <p class="format-desc">Объект живёт сам — с постером рядом и волонтёром-смотрящим.</p>
       </div>
       <div class="format">
         <div class="format-head">
           <h3 class="format-name">Выступление</h3>
           <span class="format-time">· 15–45 мин</span>
         </div>
-        <p class="format-desc">Цельный перформативный опыт, который работает только вживую: рассказ о математическом явлении, живая музыка, танец, театрализованное действие.</p>
+        <p class="format-desc">Работает только вживую: рассказ о математическом явлении, живая музыка, танец, короткое театральное действие.</p>
       </div>
     </div>
   </section>
@@ -1439,7 +1637,7 @@
       <span class="rule"></span>
     </div>
 
-    <p class="directions-hint">Сгруппировали идеи по тому, какой опыт получает посетитель. Нажмите на направление, чтобы раскрыть примеры.</p>
+    <p class="directions-hint">Собрали идеи по типу взаимодействия. Нажмите на направление, чтобы посмотреть примеры.</p>
 
     <div class="dir-expand-row">
       <button type="button" class="dir-expand-all" id="dirExpandAll">Развернуть все →</button>
@@ -1449,32 +1647,37 @@
       <div class="dir-tile" data-dir="0">
         <span class="t-num">01</span>
         <span class="t-title">Решают</span>
-        <span class="t-desc">Головоломки, задачи, ребусы — там, где посетитель думает.</span>
+        <span class="t-desc">Головоломки, задачи, игры</span>
         <span class="t-more">6 примеров ↓</span>
+        <div class="t-inline" data-inline="0"></div>
       </div>
       <div class="dir-tile" data-dir="1">
         <span class="t-num">02</span>
         <span class="t-title">Делают руками</span>
-        <span class="t-desc">Мастер-классы, где посетитель уносит физический результат.</span>
+        <span class="t-desc">Мастер-классы</span>
         <span class="t-more">8 примеров ↓</span>
+        <div class="t-inline" data-inline="1"></div>
       </div>
       <div class="dir-tile" data-dir="2">
         <span class="t-num">03</span>
         <span class="t-title">Эксперимен&shy;тируют</span>
-        <span class="t-desc">Опыты и наблюдения в реальном времени, с ведущим.</span>
-        <span class="t-more">4 примера ↓</span>
+        <span class="t-desc">Опыты и наблюдения</span>
+        <span class="t-more">6 примеров ↓</span>
+        <div class="t-inline" data-inline="2"></div>
       </div>
       <div class="dir-tile" data-dir="3">
         <span class="t-num">04</span>
         <span class="t-title">Создают вместе</span>
-        <span class="t-desc">Коллективный объект, который растёт за счёт вклада посетителей.</span>
-        <span class="t-more">4 примера ↓</span>
+        <span class="t-desc">Общий объект, который собирают вместе</span>
+        <span class="t-more">5 примеров ↓</span>
+        <div class="t-inline" data-inline="3"></div>
       </div>
       <div class="dir-tile" data-dir="4">
         <span class="t-num">05</span>
         <span class="t-title">Смотрят и слушают</span>
-        <span class="t-desc">Медленный, созерцательный опыт — объекты, перед которыми задерживаются.</span>
-        <span class="t-more">14 примеров ↓</span>
+        <span class="t-desc">Инсталляции</span>
+        <span class="t-more">10 примеров ↓</span>
+        <div class="t-inline" data-inline="4"></div>
       </div>
 
       <div class="dir-expand" id="dirExpand"></div>
@@ -1484,6 +1687,24 @@
       Данные примеров для каждого направления лежат ниже в <script>.
       Чтобы отредактировать список примеров — ищи "dirData" в <script> внизу страницы.
     -->
+  </section>
+
+  <!-- ———————————————— WHAT WE GIVE ———————————————— -->
+  <section class="we-give">
+    <div class="section-label">
+      <span class="num mono">§ 04</span>
+      <span class="label">Что мы даём</span>
+      <span class="rule"></span>
+    </div>
+
+    <div class="wg-grid">
+      <div class="wg-item"><span class="wg-mark">→</span>Расскажем о вас нашей аудитории и в соцсетях фестиваля</div>
+      <div class="wg-item"><span class="wg-mark">→</span>Поможем додумать идею</div>
+      <div class="wg-item"><span class="wg-mark">→</span>Оплатим материалы</div>
+      <div class="wg-item"><span class="wg-mark">→</span>Найдём волонтёров-помощников</div>
+      <div class="wg-item"><span class="wg-mark">→</span>Подготовим пространство</div>
+      <div class="wg-item"><span class="wg-mark">→</span>Приведём аудиторию — <strong>250+ заинтересованных взрослых</strong></div>
+    </div>
   </section>
 
   <!-- ———————————————— FORM ———————————————— -->
@@ -1583,7 +1804,7 @@
             <div class="radio-group" data-required="true" data-name="Формат">
               <label class="radio-item">
                 <input type="radio" name="q_format" value="Станция" data-branch="station" />
-                <span><strong>Станция</strong> — вы на точке весь слот (1 час), к вам подходят в любой момент.</span>
+                <span><strong>Станция</strong> — вы на точке весь час, к вам подходят в любой момент.</span>
               </label>
               <label class="radio-item">
                 <input type="radio" name="q_format" value="Инсталляция" data-branch="installation" />
@@ -1591,7 +1812,7 @@
               </label>
               <label class="radio-item">
                 <input type="radio" name="q_format" value="Выступление" data-branch="performance" />
-                <span><strong>Выступление</strong> — очень перформативное и яркое, только вживую.</span>
+                <span><strong>Выступление</strong> — яркое и живое, работает только вживую.</span>
               </label>
               <label class="radio-item">
                 <input type="radio" name="q_format" value="Пока не уверен(а)" data-branch="unsure" />
@@ -1602,7 +1823,7 @@
 
           <div class="conditional" data-branch-target="station">
             <div class="field">
-              <label class="field-label">Час для слота — работает?</label>
+              <label class="field-label">Час на станцию — подходит?</label>
               <div class="radio-group" data-name="Слот 1 час — подходит?">
                 <label class="radio-item"><input type="radio" name="q_station_slot" value="Да, час подходит" /><span>Да, час подходит</span></label>
                 <label class="radio-item"><input type="radio" name="q_station_slot" value="Час подходит, но есть нюансы" /><span>Час подходит, но есть нюансы</span></label>
@@ -1837,8 +2058,8 @@
 
   <footer class="bottom">
     <div class="gives">
-      <span class="label">Что мы даём</span>
-      Материалы оплачиваем, волонтёров-помощников находим, пространство готовим. Аудитория — 250+ заинтересованных взрослых. Подробнее о проекте — в канале <a class="link" href="https://t.me/turings_crossword" target="_blank" rel="noopener">Кроссворд Тьюринга</a>.
+      <span class="label">Подробнее о проекте</span>
+      Канал <a class="link" href="https://t.me/turings_crossword" target="_blank" rel="noopener">Кроссворд Тьюринга</a>.
       <div class="share-row">
         <span class="share-label">Знаете кого-то, кому подходит?</span>
         <button type="button" class="share-btn" id="shareCopy" data-action="copy">Скопировать ссылку</button>
@@ -1898,72 +2119,71 @@
     {
       num: '01',
       title: 'Решают',
-      desc: 'Головоломки, задачи, ребусы — там, где посетитель думает.',
+      desc: 'Головоломки, задачи, игры',
       items: [
-        'Японские головоломки: закрашивание клеток, рисование циклов, расстановка зеркал',
-        'Задачи про фракталы, узлы, топологию',
-        'Лингвистические задачи',
+        'Задачи про фракталы',
+        'Задачи про узлы и топологию',
+        'Японские головоломки',
         'Математические фокусы с разбором',
-        'Математические настолки',
-        'Игра: отличите известный математический факт от открытой гипотезы'
+        'Научпоп-настолки',
+        'Викторина: отличите известный факт от открытой гипотезы'
       ]
     },
     {
       num: '02',
       title: 'Делают руками',
-      desc: 'Мастер-классы, где посетитель уносит физический результат или проходит через действие.',
+      desc: 'Мастер-классы',
       items: [
-        'Оригами: модульные фракталы по раздаткам',
-        'Тай-дай: окрашивание ткани геометрическими узорами (на улице)',
-        'Мандалы, ловцы снов',
-        'Рисование: спирографы, фрактальные шаблоны',
-        'Мыльные фракталы в проволочных каркасах',
+        'Модульные фракталы из бумаги',
+        'Тай-дай с геометрическими узорами',
+        'Витражные рисунки на стекле',
+        'Спирографы и фрактальные шаблоны',
+        'Мыльные плёнки на проволочных каркасах',
         'Геометрические конструкторы',
-        'Ткачество и плетение узлов',
-        'Пройти по кривой Коха, нарисованной на полу'
+        'Мандалы и ловцы снов',
+        'Плетение узлов'
       ]
     },
     {
       num: '03',
       title: 'Экспериментируют',
-      desc: 'Опыты и наблюдения в реальном времени, с ведущим.',
+      desc: 'Опыты и наблюдения',
       items: [
+        'Интерактивный фрактал на экране',
+        'Песчаный маятник',
+        'Фотобудка с фрактальным искажением',
         'Микроскоп: повседневные предметы под увеличением',
-        'Химические эксперименты (на улице)',
-        'Мастерская природных форм: раковины, листья, семена',
-        'Ботаническая экспозиция: романеско, папоротники, агавы'
+        'Природные формы: раковины, листья, семена, романеско, папоротники, агавы',
+        'Химические эксперименты (на улице)'
       ]
     },
     {
       num: '04',
       title: 'Создают вместе',
-      desc: 'Коллективный объект, который растёт за счёт вклада посетителей.',
+      desc: 'Общий объект, который собирают вместе',
       items: [
-        'Треугольник Серпинского из скотча, собираемый к ночи',
-        'Стена с простым правилом: каждый добавляет один элемент',
-        'Цепочка из лего, продолжаемая по правилу самоподобия',
-        'Общий гобелен или мозаика'
+        'Большой треугольник Серпинского из скотча',
+        'Большой фрактальный пазл',
+        'Фрактальный объект из лего',
+        'Стена по простому правилу',
+        'Общая мозаика или гобелен'
       ]
     },
     {
       num: '05',
       title: 'Смотрят и слушают',
-      desc: 'Медленный, созерцательный опыт — объекты, перед которыми задерживаются.',
+      desc: 'Инсталляции',
       items: [
-        'Песчаный маятник, рисующий фигуры',
-        'Таймлапс роста кристаллов на стене',
-        'Аудио-станция: фрактальные звуки в наушниках',
         'Алгоритмическая проекция на стену',
-        '3D-печатные модели фракталов',
-        'Калейдоскопы',
-        'Научная фотография: макросъёмка и спутниковое',
-        'Архитектурные модели самоподобных структур',
         'Звучащая инсталляция, реагирующая на касание',
-        'Фотобудка с фрактальным искажением',
+        '3D-печатные модели фракталов',
+        'Научная фотография: макросъёмка и спутниковые снимки',
+        'Калейдоскопы',
         'VR-сцена с фрактальным ландшафтом',
-        'Большой принт с гидом: медленный разбор одной картинки',
-        'Инсталляция, выглядящая по-разному с разных расстояний',
-        'Таймлайн «Самоподобие до Мандельброта»'
+        'Аудио-станция: фрактальные звуки в наушниках',
+        'Таймлапс роста кристаллов',
+        'Архитектурные модели самоподобных структур',
+        'История самоподобия до Мандельброта'
       ]
     }
   ];
@@ -1977,60 +2197,104 @@
   const dirExpandAll = document.getElementById('dirExpandAll');
   let dirOpen = -1; // -1: закрыто, -2: все, 0-4: одно
 
+  function clearInlines() {
+    document.querySelectorAll('.t-inline').forEach(el => { el.innerHTML = ''; });
+  }
+
   function closeDir() {
     if (dirExpand) {
       dirExpand.classList.remove('visible');
       dirExpand.innerHTML = '';
     }
+    clearInlines();
     dirTiles.forEach(t => t.classList.remove('active'));
     dirOpen = -1;
     if (dirExpandAll) dirExpandAll.textContent = 'Развернуть все →';
   }
 
-  function renderDirSingle(idx) {
-    if (!dirExpand) return;
-    const d = dirData[idx];
+  function buildInlineHTML(d) {
     const items = d.items.map(x => `<li>${escHtml(x)}</li>`).join('');
-    dirExpand.innerHTML = `
-      <div class="e-head">
-        <span class="e-num">${d.num}</span>
-        <span class="e-title">${escHtml(d.title)}</span>
-        <button class="e-close" type="button">закрыть ✕</button>
-      </div>
-      <p class="e-desc">${escHtml(d.desc)}</p>
+    return `
+      <div class="ti-desc">${escHtml(d.desc)}</div>
       <ul>${items}</ul>
+      <button class="e-close" type="button" style="margin-top: 12px;">закрыть ✕</button>
     `;
-    dirExpand.querySelector('.e-close').addEventListener('click', closeDir);
+  }
+
+  function renderDirSingle(idx) {
+    const d = dirData[idx];
+    // Рендерим в desktop-блок
+    if (dirExpand) {
+      const items = d.items.map(x => `<li>${escHtml(x)}</li>`).join('');
+      dirExpand.innerHTML = `
+        <div class="e-head">
+          <span class="e-num">${d.num}</span>
+          <span class="e-title">${escHtml(d.title)}</span>
+          <button class="e-close" type="button">закрыть ✕</button>
+        </div>
+        <p class="e-desc">${escHtml(d.desc)}</p>
+        <ul>${items}</ul>
+      `;
+      const closeBtn = dirExpand.querySelector('.e-close');
+      if (closeBtn) closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeDir(); });
+    }
+    // Рендерим в mobile-inline блок той же плитки
+    const inline = document.querySelector('.t-inline[data-inline="' + idx + '"]');
+    if (inline) {
+      inline.innerHTML = buildInlineHTML(d);
+      const inlineClose = inline.querySelector('.e-close');
+      if (inlineClose) inlineClose.addEventListener('click', (e) => { e.stopPropagation(); closeDir(); });
+    }
   }
 
   function renderDirAll() {
-    if (!dirExpand) return;
-    const sections = dirData.map(d => `
-      <div class="e-section">
-        <div class="e-head" style="margin-bottom: 10px;">
-          <span class="e-num">${d.num}</span>
-          <span class="e-title">${escHtml(d.title)}</span>
+    // Desktop: всё в один большой блок
+    if (dirExpand) {
+      const sections = dirData.map(d => `
+        <div class="e-section">
+          <div class="e-head" style="margin-bottom: 10px;">
+            <span class="e-num">${d.num}</span>
+            <span class="e-title">${escHtml(d.title)}</span>
+          </div>
+          <p class="e-desc">${escHtml(d.desc)}</p>
+          <ul>${d.items.map(x => `<li>${escHtml(x)}</li>`).join('')}</ul>
         </div>
-        <p class="e-desc">${escHtml(d.desc)}</p>
-        <ul>${d.items.map(x => `<li>${escHtml(x)}</li>`).join('')}</ul>
-      </div>
-    `).join('');
-    dirExpand.innerHTML = `
-      ${sections}
-      <div style="text-align: right; margin-top: 18px;">
-        <button class="e-close" type="button">свернуть всё ✕</button>
-      </div>
-    `;
-    dirExpand.querySelector('.e-close').addEventListener('click', closeDir);
+      `).join('');
+      dirExpand.innerHTML = `
+        ${sections}
+        <div style="text-align: right; margin-top: 18px;">
+          <button class="e-close" type="button">свернуть всё ✕</button>
+        </div>
+      `;
+      const closeBtn = dirExpand.querySelector('.e-close');
+      if (closeBtn) closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeDir(); });
+    }
+    // Mobile: заполняем каждую плитку её данными
+    dirData.forEach((d, idx) => {
+      const inline = document.querySelector('.t-inline[data-inline="' + idx + '"]');
+      if (inline) {
+        inline.innerHTML = buildInlineHTML(d);
+        const inlineClose = inline.querySelector('.e-close');
+        if (inlineClose) inlineClose.addEventListener('click', (e) => { e.stopPropagation(); closeDir(); });
+      }
+    });
   }
 
-  dirTiles.forEach(tile => {
-    tile.addEventListener('click', () => {
+  // Делегируем клик на grid — click может прилететь с любого дочернего span
+  const dirGrid = document.getElementById('dirGrid');
+  if (dirGrid) {
+    dirGrid.addEventListener('click', (e) => {
+      // Игнорируем клики по кнопкам "закрыть" внутри раскрытого блока
+      if (e.target.closest('.e-close')) return;
+      const tile = e.target.closest('.dir-tile');
+      if (!tile) return;
       const idx = parseInt(tile.dataset.dir, 10);
+      if (isNaN(idx)) return;
       if (dirOpen === idx) {
         closeDir();
         return;
       }
+      clearInlines();
       dirTiles.forEach(t => t.classList.remove('active'));
       tile.classList.add('active');
       renderDirSingle(idx);
@@ -2038,7 +2302,7 @@
       dirOpen = idx;
       if (dirExpandAll) dirExpandAll.textContent = 'Развернуть все →';
     });
-  });
+  }
 
   if (dirExpandAll) {
     dirExpandAll.addEventListener('click', () => {
@@ -2522,20 +2786,25 @@
   }
 
   // ———— Счётчик дней до дедлайна ————
-  const daysLeftEl = document.getElementById('daysLeft');
-  if (daysLeftEl) {
+  // Обновляет все элементы с data-days-left: в hero — "осталось N дней",
+  // в sticky-header — компактно "N дней"
+  const daysLeftEls = document.querySelectorAll('[data-days-left]');
+  if (daysLeftEls.length) {
     const deadline = new Date(2026, 4, 5); // 5 мая 2026 (месяц с 0)
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const diff = Math.ceil((deadline - today) / (1000 * 60 * 60 * 24));
-    if (diff > 0) {
-      const word = pluralDays(diff);
-      daysLeftEl.textContent = `осталось ${diff} ${word}`;
-    } else if (diff === 0) {
-      daysLeftEl.textContent = `последний день`;
-    } else {
-      daysLeftEl.style.display = 'none';
-    }
+    daysLeftEls.forEach((el) => {
+      const compact = el.closest('.sticky-header') !== null;
+      if (diff > 0) {
+        const word = pluralDays(diff);
+        el.textContent = compact ? `${diff} ${word}` : `осталось ${diff} ${word}`;
+      } else if (diff === 0) {
+        el.textContent = compact ? 'сегодня' : 'последний день';
+      } else {
+        el.style.display = 'none';
+      }
+    });
   }
 
   function pluralDays(n) {
@@ -2640,7 +2909,6 @@
     });
   }
 })();
-</script>
 </script>
 
 </body>
