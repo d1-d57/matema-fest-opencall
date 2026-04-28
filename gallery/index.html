@@ -2406,6 +2406,115 @@ class CantorRenderer {
 
 
 // ============================================================================
+// KOCH SNOWFLAKE RENDERER — детерминированный рендер замкнутого контура
+// по L-системе. Работает с тем же viewport-API, что и IFSRenderer, поэтому
+// pan/zoom и minimap у него такие же.
+// Аксиома: F++F++F (равносторонний треугольник, выступы наружу)
+// Правило: F → F-F++F-F (угол 60°)
+// На итерации k число сегментов равно 3·4^k. Точки L-системы кэшируются на
+// нескольких уровнях детальности; уровень выбирается по текущему zoom — при
+// сильном приближении подгружается более глубокая версия, чтобы не было
+// заметно «полигональности» зубцов.
+// ============================================================================
+class KochSnowflakeRenderer {
+  constructor() {
+    // Точки нормированы так, чтобы снежинка была вписана в квадрат [0,1]×[0,1]
+    // (с отступом по краям) — viewport остальных слайдов работает в тех же
+    // координатах, и это удобно для согласованности.
+    this.cache = {};
+  }
+
+  buildPoints(iterations) {
+    if (this.cache[iterations]) return this.cache[iterations];
+
+    let s = 'F++F++F';
+    for (let i = 0; i < iterations; i++) {
+      let next = '';
+      for (const c of s) next += (c === 'F') ? 'F-F++F-F' : c;
+      s = next;
+    }
+
+    const pts = [];
+    let x = 0, y = 0;
+    let angle = 0;
+    pts.push([x, y]);
+    for (const c of s) {
+      if (c === 'F') {
+        x += Math.cos(angle);
+        y += Math.sin(angle);
+        pts.push([x, y]);
+      } else if (c === '+') {
+        angle += Math.PI / 3;
+      } else if (c === '-') {
+        angle -= Math.PI / 3;
+      }
+    }
+
+    // Нормализуем bbox в квадрат [0,1]×[0,1] со скромным отступом по краям
+    let xMin = Infinity, xMax = -Infinity, yMin = Infinity, yMax = -Infinity;
+    for (const [px, py] of pts) {
+      if (px < xMin) xMin = px; if (px > xMax) xMax = px;
+      if (py < yMin) yMin = py; if (py > yMax) yMax = py;
+    }
+    const w = xMax - xMin;
+    const h = yMax - yMin;
+    const scale = 0.92 / Math.max(w, h);
+    const ox = (1 - w * scale) / 2;
+    const oy = (1 - h * scale) / 2;
+    const norm = pts.map(([px, py]) => [
+      ox + (px - xMin) * scale,
+      oy + (py - yMin) * scale
+    ]);
+    this.cache[iterations] = norm;
+    return norm;
+  }
+
+  drawN(ctx, _n, viewport, cssW, cssH, opts) {
+    const { color, margin = 16 } = opts;
+
+    const vxMin = viewport.xMin;
+    const vxSpan = viewport.xMax - vxMin;
+    const vyMin = viewport.yMin;
+    const vySpan = viewport.yMax - vyMin;
+    const innerW = cssW - 2 * margin;
+    const innerH = cssH - 2 * margin;
+
+    // Адаптивная глубина: чем сильнее зум, тем больше итераций нужно,
+    // чтобы зубцы оставались мелкими в экранных координатах.
+    // На дефолтном viewport (~1.0 по x) хватает 5 итераций, при zoom×9 — 6, и т.д.
+    const zoom = 1 / Math.max(vxSpan, vySpan);
+    let iterations = 4;
+    if (zoom > 1.5) iterations = 5;
+    if (zoom > 6)   iterations = 6;
+    if (zoom > 24)  iterations = 7;
+
+    const pts = this.buildPoints(iterations);
+
+    ctx.save();
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = color;
+    // Толщина зависит от размера canvas: на минимапе тоньше
+    ctx.lineWidth = Math.max(0.6, Math.min(1.6, cssW / 600));
+    ctx.lineJoin = 'miter';
+    ctx.lineCap = 'butt';
+    ctx.miterLimit = 4;
+
+    ctx.beginPath();
+    for (let i = 0; i < pts.length; i++) {
+      const [px, py] = pts[i];
+      const cx = ((px - vxMin) / vxSpan) * innerW + margin;
+      const cy = cssH - margin - ((py - vyMin) / vySpan) * innerH;
+      if (i === 0) ctx.moveTo(cx, cy);
+      else ctx.lineTo(cx, cy);
+    }
+    ctx.closePath();
+    ctx.stroke();
+    ctx.restore();
+  }
+}
+
+
+// ============================================================================
 // PYTHAGORAS TREE RENDERER — рекурсивно квадраты с углом 45°
 // ============================================================================
 // Дерево рисуется до глубины ~12. Базовый квадрат имеет сторону 1 и нижнюю
@@ -3209,16 +3318,11 @@ function makeSnowflakeIFS() {
 const kochConfig = {
   accent: '#A8C5DA',
   displayName: 'снежинка Коха',
-  // снежинка занимает [0..1] по x плюс выступы √3/6 в стороны;
-  // по y — от -√3/2 - √3/6 до √3/6. Квадратный viewport 1.7×1.7 с центром
-  // в центроиде треугольника (0.5, -√3/6).
-  defaultViewport: { xMin: -0.20, xMax: 1.20, yMin: -1.133, yMax: 0.267 },
-  baseIterations: 350000,      // 12 преобразований — нужно больше точек
-  minimapIterations: 8000,
-  renderer: new IFSRenderer({
-    transforms: makeSnowflakeIFS(),
-    probabilities: new Array(12).fill(1/12)
-  })
+  // Снежинка вписана KochSnowflakeRenderer'ом в [0,1]×[0,1].
+  defaultViewport: { xMin: 0, xMax: 1, yMin: 0, yMax: 1 },
+  baseIterations: 1,        // не используется — детерминированный рендер
+  minimapIterations: 1,
+  renderer: new KochSnowflakeRenderer()
 };
 
 
